@@ -1,0 +1,45 @@
+<EsHeader />
+<EsMain>
+  <EsHeading>Upgrade Guide</EsHeading>
+  <p>From version</p>
+  <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.fromVersion}}
+    @onChange={{fn (mut fromVersion)}} as |version|>
+    {{version}}
+  </PowerSelect>
+
+
+  <p>To version</p>
+  <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.toVersion}}
+    @onChange={{fn (mut toVersion)}} as |version|>
+    {{version}}
+  </PowerSelect>
+
+  <h2>Upgrading from {{this.fromVersion}} to {{this.toVersion}}</h2>
+
+  <h2>Ember.js</h2>
+
+  <h3>New features (COUNT)</h3>
+  <ul>
+    {{#each this.features as |feature|}}
+      {{#if (and (lte feature.version this.toVersion) (gte feature.version this.fromVersion))}}
+        <p>{{feature.title}}: <a href={{feature.link}}>More info</a> (Ember {{feature.version}})</p><br>
+      {{/if}}
+    {{/each}}
+  </ul>
+
+  <h2>Ember Data</h2>
+
+
+  <h2>Ember CLI</h2>
+
+
+  <h2>Deprecations</h2>
+  {{#each this.deprecations as |deprecation|}}
+    {{#if (and (lte deprecation.version this.toVersion) (gte deprecation.version this.fromVersion))}}
+      <p>{{deprecation.title}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})</p>
+    {{/if}}
+  {{/each}}
+</EsMain>
+<EsFooter />
+
+{{outlet}}
