@@ -1,6 +1,7 @@
 import Controller from "@ember/controller";
 
 export default class IndexController extends Controller {
+  queryParams = ["fromVersion", "toVersion"];
   fromVersion = 3.13;
   toVersion = 3.15;
   versions = [3.13, 3.14, 3.15, 3.16];
