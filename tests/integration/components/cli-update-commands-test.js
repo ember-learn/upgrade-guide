@@ -7,12 +7,6 @@ module('Integration | Component | cli-update-commands', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it checks if the right command is displayed', async function(assert) {
-    this.versions = [
-      3.13,
-      3.14,
-      3.15,
-      3.16
-    ];
     this.toVersion = 3.14;
 
     await render(hbs`<CliUpdateCommands @toVersion={{this.toVersion}} @versions={{this.versions}} />`);
