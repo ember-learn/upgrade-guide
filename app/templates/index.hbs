@@ -6,8 +6,7 @@
     @onChange={{fn (mut fromVersion)}} as |version|>
     {{version}}
   </PowerSelect>
-
-
+  <br />
   <p>To version</p>
   <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.toVersion}}
     @onChange={{fn (mut toVersion)}} as |version|>
@@ -21,9 +20,9 @@
   <h3>New features (COUNT)</h3>
   <ul>
     {{#each this.features as |feature|}}
-      {{#if (and (lte feature.version this.toVersion) (gte feature.version this.fromVersion))}}
-        <p>{{feature.title}}: <a href={{feature.link}}>More info</a> (Ember {{feature.version}})</p><br>
-      {{/if}}
+    {{#if (and (lte feature.version this.toVersion) (gte feature.version this.fromVersion))}}
+    <p>{{feature.title}}: <a href={{feature.link}}>More info</a> (Ember {{feature.version}})</p><br>
+    {{/if}}
     {{/each}}
   </ul>
 
@@ -35,9 +34,9 @@
 
   <h2>Deprecations</h2>
   {{#each this.deprecations as |deprecation|}}
-    {{#if (and (lte deprecation.version this.toVersion) (gte deprecation.version this.fromVersion))}}
-      <p>{{deprecation.title}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})</p>
-    {{/if}}
+  {{#if (and (lte deprecation.version this.toVersion) (gte deprecation.version this.fromVersion))}}
+  <p>{{deprecation.title}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})</p>
+  {{/if}}
   {{/each}}
 </EsMain>
 <EsFooter />
