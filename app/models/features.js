@@ -1,4 +1,4 @@
-export const THREE_FEATURES = Object.freeze([
+export const FEATURES = Object.freeze([
   {
     version: 3.0,
     title: "Updates to the Testing Defaults",
