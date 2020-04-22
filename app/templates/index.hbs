@@ -29,17 +29,59 @@
   </ul>
 
   <h2>Ember Data</h2>
+  <ul>
+    <h4><strong>New Features</strong></h4>
+    {{#each this.emberDataFeatures as |feature|}}
+    {{#if (and (lte feature.version this.toVersion) (gte feature.version this.fromVersion))}}
+    <p>
+      {{feature.title}}: <a href={{feature.link}}>More info</a> (Ember {{feature.version}})
+    </p><br>
+    {{/if}}
+    {{/each}}
+  </ul>
+  <ul>
+    <h4><strong>Deprecations</strong></h4>
+    {{#each this.emberDataDeprecations as |deprecation|}}
+    {{#if (and (lte deprecation.version this.toVersion) (gte deprecation.version this.fromVersion))}}
+    <p>
+      {{deprecation.title}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})
+    </p><br>
+    {{/if}}
+    {{/each}}
+  </ul>
 
 
   <h2>Ember CLI</h2>
+  <ul>
+    <h4><strong>New Features</strong></h4>
+    {{#each this.emberCliFeatures as |feature|}}
+    {{#if (and (lte feature.version this.toVersion) (gte feature.version this.fromVersion))}}
+    <p>
+      {{feature.title}}: <a href={{feature.link}}>More info</a> (Ember {{feature.version}})
+    </p><br>
+    {{/if}}
+    {{/each}}
+  </ul>
+  <ul>
+    <h4><strong>Deprecations</strong></h4>
+    {{#each this.emberCliDeprecations as |deprecation|}}
+    {{#if (and (lte deprecation.version this.toVersion) (gte deprecation.version this.fromVersion))}}
+    <p>
+      {{deprecation.title}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})
+    </p><br>
+    {{/if}}
+    {{/each}}
+  </ul>
 
 
   <h2>Deprecations</h2>
-  {{#each this.deprecations as |deprecation|}}
-  {{#if (and (lte deprecation.version this.toVersion) (gte deprecation.version this.fromVersion))}}
-  <p>{{deprecation.title}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})</p>
-  {{/if}}
-  {{/each}}
+  <ul>
+    {{#each this.deprecations as |deprecation|}}
+    {{#if (and (lte deprecation.version this.toVersion) (gte deprecation.version this.fromVersion))}}
+    <p>{{deprecation.title}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})</p>
+    {{/if}}
+    {{/each}}
+  </ul>
 </EsMain>
 <EsFooter />
 
