@@ -77,8 +77,8 @@
   <ul>
     {{#each this.model.deprecations as |deprecation|}}
       {{#if (and (lte deprecation.version this.toVersion) (gt deprecation.version this.fromVersion))}}
-        {{#each deprecation.title as |deprecationTitle|}}
-          <p>{{deprecationTitle}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})</p>
+        {{#each deprecation.changes as |deprecationChange|}}
+          <p>{{deprecationChange.title}}: <a href={{deprecationChange.link}} rel="noopener noreferrer" target="_blank">More info</a> (Ember {{deprecation.id}})</p>
         {{/each}}
       {{/if}}
     {{/each}}
