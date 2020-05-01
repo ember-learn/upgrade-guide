@@ -1,5 +1,4 @@
 import Controller from "@ember/controller";
-import { DEPRECATIONS } from "../models/deprecations";
 import { FEATURES } from "../models/features";
 import { VERSIONS } from "../models/versions";
 import { ED_FEATURES, ED_DEPRECATIONS } from "../models/ember-data";
@@ -11,7 +10,6 @@ export default class IndexController extends Controller {
   toVersion = 3.16;
   versions = VERSIONS;
   features = FEATURES;
-  deprecations = DEPRECATIONS;
   emberDataFeatures = ED_FEATURES;
   emberDataDeprecations = ED_DEPRECATIONS;
   emberCliFeatures = EC_FEATURES;
