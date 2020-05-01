@@ -1,9 +1,9 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
-  namespace = '/api'
+  namespace = '/api';
 
   urlForFindAll(modelName) {
-    return `${this.namespace}/${this.pathForType(modelName)}.json`;
+    return `${this.namespace}/${this.pathForType(modelName)}/all.json`;
   }
 }

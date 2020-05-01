@@ -53,23 +53,31 @@
 
   <h2>Ember CLI</h2>
   <ul>
-    <h4><strong>New Features</strong></h4>
-    {{#each this.emberCliFeatures as |feature|}}
-    {{#if (and (lte feature.version this.toVersion) (gte feature.version this.fromVersion))}}
-    <p>
-      {{feature.title}}: <a href={{feature.link}}>More info</a> (Ember {{feature.version}})
-    </p><br>
-    {{/if}}
+    <h3>New Features</h3>
+    {{#each this.model.emberCLIChanges as |CLIchange|}}
+      {{#if (and (lte CLIchange.version this.toVersion) (gt CLIchange.version this.fromVersion))}}
+        {{#each CLIchange.changes as |change|}}
+          {{#if change.feature}}
+            <p>
+              {{change.title}}: <a href={{change.link}}>More info</a> (Ember {{CLIchange.version}})
+            </p>
+          {{/if}}
+        {{/each}}
+      {{/if}}
     {{/each}}
   </ul>
   <ul>
-    <h4><strong>Deprecations</strong></h4>
-    {{#each this.emberCliDeprecations as |deprecation|}}
-    {{#if (and (lte deprecation.version this.toVersion) (gte deprecation.version this.fromVersion))}}
-    <p>
-      {{deprecation.title}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})
-    </p><br>
-    {{/if}}
+    <h3>Deprecations</h3>
+    {{#each this.model.emberCLIChanges as |CLIchange|}}
+      {{#if (and (lte CLIchange.version this.toVersion) (gt CLIchange.version this.fromVersion))}}
+        {{#each CLIchange.changes as |change|}}
+          {{#if change.deprecation}}
+            <p>
+              {{change.title}}: <a href={{change.link}}>More info</a> (Ember {{CLIchange.version}})
+            </p>
+          {{/if}}
+        {{/each}}
+      {{/if}}
     {{/each}}
   </ul>
 
