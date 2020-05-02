@@ -25,26 +25,33 @@
 
   <h2>Ember Data</h2>
   <ul>
-    <h4><strong>New Features</strong></h4>
-    {{#each this.emberDataFeatures as |feature|}}
-    {{#if (and (lte feature.version this.toVersion) (gte feature.version this.fromVersion))}}
-    <p>
-      {{feature.title}}: <a href={{feature.link}}>More info</a> (Ember {{feature.version}})
-    </p><br>
-    {{/if}}
+    <h3>New Features</h3>
+    {{#each this.model.emberDataChanges as |dataChange|}}
+      {{#if (and (lte dataChange.version this.toVersion) (gt dataChange.version this.fromVersion))}}
+        {{#each dataChange.changes as |change|}}
+          {{#if change.feature}}
+            <p>
+              {{change.title}}: <a href={{change.link}}>More info</a> (Ember {{dataChange.version}})
+            </p>
+          {{/if}}
+        {{/each}}
+      {{/if}}
     {{/each}}
   </ul>
   <ul>
-    <h4><strong>Deprecations</strong></h4>
-    {{#each this.emberDataDeprecations as |deprecation|}}
-    {{#if (and (lte deprecation.version this.toVersion) (gte deprecation.version this.fromVersion))}}
-    <p>
-      {{deprecation.title}}: <a href={{deprecation.link}}>More info</a> (Ember {{deprecation.version}})
-    </p><br>
-    {{/if}}
+    <h3>Deprecations</h3>
+    {{#each this.model.emberDataChanges as |dataChange|}}
+      {{#if (and (lte dataChange.version this.toVersion) (gt dataChange.version this.fromVersion))}}
+        {{#each dataChange.changes as |change|}}
+          {{#if change.deprecation}}
+            <p>
+              {{change.title}}: <a href={{change.link}}>More info</a> (Ember {{dataChange.version}})
+            </p>
+          {{/if}}
+        {{/each}}
+      {{/if}}
     {{/each}}
   </ul>
-
 
   <h2>Ember CLI</h2>
   <ListFeaturesDeprecations
