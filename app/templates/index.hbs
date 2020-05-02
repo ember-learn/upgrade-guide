@@ -47,34 +47,10 @@
 
 
   <h2>Ember CLI</h2>
-  <ul>
-    <h3>New Features</h3>
-    {{#each this.model.emberCLIChanges as |CLIchange|}}
-      {{#if (and (lte CLIchange.version this.toVersion) (gt CLIchange.version this.fromVersion))}}
-        {{#each CLIchange.changes as |change|}}
-          {{#if change.feature}}
-            <p>
-              {{change.title}}: <a href={{change.link}}>More info</a> (Ember {{CLIchange.version}})
-            </p>
-          {{/if}}
-        {{/each}}
-      {{/if}}
-    {{/each}}
-  </ul>
-  <ul>
-    <h3>Deprecations</h3>
-    {{#each this.model.emberCLIChanges as |CLIchange|}}
-      {{#if (and (lte CLIchange.version this.toVersion) (gt CLIchange.version this.fromVersion))}}
-        {{#each CLIchange.changes as |change|}}
-          {{#if change.deprecation}}
-            <p>
-              {{change.title}}: <a href={{change.link}}>More info</a> (Ember {{CLIchange.version}})
-            </p>
-          {{/if}}
-        {{/each}}
-      {{/if}}
-    {{/each}}
-  </ul>
+  <ListFeaturesDeprecations
+    @datum={{this.model.emberCLIChanges}}
+    @toVersion={{this.toVersion}}
+    @fromVersion={{this.fromVersion}} />
 </EsMain>
 <EsFooter />
 
