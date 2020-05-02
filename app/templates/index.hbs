@@ -24,34 +24,10 @@
     @fromVersion={{this.fromVersion}} />
 
   <h2>Ember Data</h2>
-  <ul>
-    <h3>New Features</h3>
-    {{#each this.model.emberDataChanges as |dataChange|}}
-      {{#if (and (lte dataChange.version this.toVersion) (gt dataChange.version this.fromVersion))}}
-        {{#each dataChange.changes as |change|}}
-          {{#if change.feature}}
-            <p>
-              {{change.title}}: <a href={{change.link}}>More info</a> (Ember {{dataChange.version}})
-            </p>
-          {{/if}}
-        {{/each}}
-      {{/if}}
-    {{/each}}
-  </ul>
-  <ul>
-    <h3>Deprecations</h3>
-    {{#each this.model.emberDataChanges as |dataChange|}}
-      {{#if (and (lte dataChange.version this.toVersion) (gt dataChange.version this.fromVersion))}}
-        {{#each dataChange.changes as |change|}}
-          {{#if change.deprecation}}
-            <p>
-              {{change.title}}: <a href={{change.link}}>More info</a> (Ember {{dataChange.version}})
-            </p>
-          {{/if}}
-        {{/each}}
-      {{/if}}
-    {{/each}}
-  </ul>
+  <ListFeaturesDeprecations
+    @datum={{this.model.emberDataChanges}}
+    @toVersion={{this.toVersion}}
+    @fromVersion={{this.fromVersion}} />
 
   <h2>Ember CLI</h2>
   <ListFeaturesDeprecations
