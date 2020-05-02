@@ -18,15 +18,10 @@
   <CliUpdateCommands @toVersion={{this.toVersion}} />
 
   <h2>Ember.js</h2>
-
-  <h3>New features (COUNT)</h3>
-  <ul>
-    {{#each this.features as |feature|}}
-    {{#if (and (lte feature.version this.toVersion) (gte feature.version this.fromVersion))}}
-    <p>{{feature.title}}: <a href={{feature.link}}>More info</a> (Ember {{feature.version}})</p><br>
-    {{/if}}
-    {{/each}}
-  </ul>
+  <ListFeaturesDeprecations
+    @datum={{this.model.emberJSChanges}}
+    @toVersion={{this.toVersion}}
+    @fromVersion={{this.fromVersion}} />
 
   <h2>Ember Data</h2>
   <ul>
@@ -76,17 +71,6 @@
               {{change.title}}: <a href={{change.link}}>More info</a> (Ember {{CLIchange.version}})
             </p>
           {{/if}}
-        {{/each}}
-      {{/if}}
-    {{/each}}
-  </ul>
-
-  <h2>Deprecations</h2>
-  <ul>
-    {{#each this.model.deprecations as |deprecation|}}
-      {{#if (and (lte deprecation.version this.toVersion) (gt deprecation.version this.fromVersion))}}
-        {{#each deprecation.changes as |deprecationChange|}}
-          <p>{{deprecationChange.title}}: <a href={{deprecationChange.link}} rel="noopener noreferrer" target="_blank">More info</a> (Ember {{deprecation.id}})</p>
         {{/each}}
       {{/if}}
     {{/each}}

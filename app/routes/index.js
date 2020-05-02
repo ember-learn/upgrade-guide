@@ -4,7 +4,7 @@ import { hash } from 'rsvp';
 export default class IndexRoute extends Route {
   model() {
     return hash({
-      deprecations: this.store.findAll('deprecation'),
+      emberJSChanges: this.store.findAll('ember-js-change'),
       emberCLIChanges: this.store.findAll('ember-cli-change')
     });
   }
