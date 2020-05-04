@@ -1,0 +1,10 @@
+{
+  "name": "content-generator",
+  "keywords": [
+    "ember-addon"
+  ],
+  "devDependencies": {
+    "broccoli-merge-trees": "*",
+    "broccoli-static-site-json": "*"
+  }
+}
