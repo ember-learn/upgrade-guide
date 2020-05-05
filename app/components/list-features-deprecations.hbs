@@ -1,0 +1,31 @@
+<h3>New features (COUNT)</h3>
+<ul>
+  {{#each @datum as |model|}}
+    {{#if (and (lte model.version @toVersion) (gt model.version @fromVersion))}}
+      {{#each model.changes as |change|}}
+        {{#if change.feature}}
+          <p>
+            {{change.title}}: 
+            <a href={{change.link}} rel="noopener noreferrer">More info</a> ({{model.id}})
+          </p>
+        {{/if}}
+      {{/each}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h3>Deprecations</h3>
+<ul>
+  {{#each @datum as |model|}}
+    {{#if (and (lte model.version @toVersion) (gt model.version @fromVersion))}}
+      {{#each model.changes as |change|}}
+        {{#if change.deprecation}}
+          <p>
+            {{change.title}}: 
+            <a href={{change.link}} rel="noopener noreferrer">More info</a> ({{model.id}})
+          </p>
+        {{/if}}
+      {{/each}}
+    {{/if}}
+  {{/each}}
+</ul>
