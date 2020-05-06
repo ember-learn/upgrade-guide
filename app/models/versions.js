@@ -1,4 +1,6 @@
 export const VERSIONS = Object.freeze([
+  2.01,
+  2.02,
   2.03,
   2.04,
   2.05,
