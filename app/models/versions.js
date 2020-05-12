@@ -1,4 +1,5 @@
 export const VERSIONS = Object.freeze([
+<<<<<<< HEAD
   2.0,
   2.01,
   2.02,
@@ -18,6 +19,10 @@ export const VERSIONS = Object.freeze([
   2.16,
   2.17,
   2.18,
+=======
+  1.0,
+  1.01,
+>>>>>>> 2 - adds 1 to 1.03
   3.0,
   3.01,
   3.02,
