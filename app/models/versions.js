@@ -44,7 +44,12 @@ export const VERSIONS = Object.freeze([
   1.3,
   1.4,
   1.5,
+<<<<<<< HEAD
 >>>>>>> 2 - add up to Ember 1.5
+=======
+  1.6,
+  1.7,
+>>>>>>> 2 - add up to Ember 1.11
   3.0,
   3.01,
   3.02,
