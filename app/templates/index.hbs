@@ -1,40 +1,41 @@
 <EsHeader />
-<EsMain>
-  <EsHeading>Upgrade Guide</EsHeading>
-  <p>From version</p>
-  <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.fromVersion}}
-    @onChange={{fn (mut fromVersion)}} as |version|>
-    {{version}}
-  </PowerSelect>
-  <br />
-  <p>To version</p>
-  <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.toVersion}}
-    @onChange={{fn (mut toVersion)}} as |version|>
-    {{version}}
-  </PowerSelect>
+<main>
+  <section class="container">
+    <h1 class="es-heading">Upgrade Guide</h1>
+    <p>From version</p>
+    <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.fromVersion}}
+      @onChange={{fn (mut fromVersion)}} as |version|>
+      {{version}}
+    </PowerSelect>
+    <br />
+    <p>To version</p>
+    <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.toVersion}}
+      @onChange={{fn (mut toVersion)}} as |version|>
+      {{version}}
+    </PowerSelect>
 
-  <h2>Upgrading from {{this.fromVersion}} to {{this.toVersion}}</h2>
+    <h2>Upgrading from {{this.fromVersion}} to {{this.toVersion}}</h2>
 
-  <CliUpdateCommands @toVersion={{this.toVersion}} />
+    <CliUpdateCommands @toVersion={{this.toVersion}} />
 
-  <h2>Ember.js</h2>
-  <ListFeaturesDeprecations
-    @datum={{this.model.emberJSChanges}}
-    @toVersion={{this.toVersion}}
-    @fromVersion={{this.fromVersion}} />
+    <h2>Ember.js</h2>
+    <ListFeaturesDeprecations
+      @datum={{this.model.emberJSChanges}}
+      @toVersion={{this.toVersion}}
+      @fromVersion={{this.fromVersion}} />
 
-  <h2>Ember Data</h2>
-  <ListFeaturesDeprecations
-    @datum={{this.model.emberDataChanges}}
-    @toVersion={{this.toVersion}}
-    @fromVersion={{this.fromVersion}} />
+    <h2>Ember Data</h2>
+    <ListFeaturesDeprecations
+      @datum={{this.model.emberDataChanges}}
+      @toVersion={{this.toVersion}}
+      @fromVersion={{this.fromVersion}} />
 
-  <h2>Ember CLI</h2>
-  <ListFeaturesDeprecations
-    @datum={{this.model.emberCLIChanges}}
-    @toVersion={{this.toVersion}}
-    @fromVersion={{this.fromVersion}} />
-</EsMain>
+    <h2>Ember CLI</h2>
+    <ListFeaturesDeprecations
+      @datum={{this.model.emberCLIChanges}}
+      @toVersion={{this.toVersion}}
+      @fromVersion={{this.fromVersion}} />
+  </section>
+</main>
+
 <EsFooter />
-
-{{outlet}}
