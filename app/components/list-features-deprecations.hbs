@@ -6,7 +6,7 @@
         {{#if change.feature}}
           <p>
             {{change.title}}: 
-            <a href={{change.link}} rel="noopener noreferrer">More info</a> ({{model.id}})
+            <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">({{model.id}})</a>
           </p>
         {{/if}}
       {{/each}}
@@ -22,7 +22,7 @@
         {{#if change.deprecation}}
           <p>
             {{change.title}}: 
-            <a href={{change.link}} rel="noopener noreferrer">More info</a> ({{model.id}})
+            <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">({{model.id}})</a>
           </p>
         {{/if}}
       {{/each}}

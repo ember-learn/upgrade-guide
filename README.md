@@ -1,5 +1,7 @@
 # upgrade-guide
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 

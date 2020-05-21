@@ -6,7 +6,7 @@ export default class IndexRoute extends Route {
     return hash({
       emberJSChanges: this.store.findAll('ember-js-change'),
       emberCLIChanges: this.store.findAll('ember-cli-change'),
-      emberDataChanges: this.store.findAll('ember-data-change')
+      emberDataChanges: this.store.findAll('ember-data-change'),
     });
   }
 }
