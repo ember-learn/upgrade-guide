@@ -19,7 +19,8 @@ export const VERSIONS = Object.freeze([
   1.7,
   1.8,
   1.9,
-  1.1,
+  // eslint-disable-next-line prettier/prettier
+  1.10,
   1.11,
   1.12,
   1.13,
