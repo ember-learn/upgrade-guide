@@ -14,11 +14,11 @@ module('Integration | Component | cli-update-commands', function (hooks) {
     );
 
     assert
-      .dom('[data-test-update-command=""]')
+      .dom('[data-test-update-command]')
       .hasText('ember-cli-update --to 3.14');
 
     assert
-      .dom('[data-test-update-codemod=""]')
+      .dom('[data-test-update-codemod]')
       .hasText('ember-cli-update --run-codemods');
   });
 });
