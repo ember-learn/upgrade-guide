@@ -3,13 +3,15 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | list-feature-deprecation', function(hooks) {
+module('Integration | Component | list-features-deprecations', function (
+  hooks
+) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test('it renders', async function (assert) {
     // TODO:: Write tests
-    await render(hbs`<ListFeatureDeprecation />`);
+    await render(hbs`<ListFeaturesDeprecations />`);
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.notEqual(this.element.textContent.trim(), '');
   });
 });

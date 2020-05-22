@@ -4,13 +4,13 @@
     <h1 class="es-heading">Upgrade Guide</h1>
     <p>From version</p>
     <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.fromVersion}}
-      @onChange={{fn (mut fromVersion)}} as |version|>
+      @onChange={{fn (mut this.fromVersion)}} as |version|>
       {{version}}
     </PowerSelect>
     <br />
     <p>To version</p>
     <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.toVersion}}
-      @onChange={{fn (mut toVersion)}} as |version|>
+      @onChange={{fn (mut this.toVersion)}} as |version|>
       {{version}}
     </PowerSelect>
 
