@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-  description: '',
+  description: 'Generates an ember-cli-changes markdown file',
 };
