@@ -1,0 +1,4 @@
+---
+version: <%= dasherizedModuleName %>
+changes:
+---
