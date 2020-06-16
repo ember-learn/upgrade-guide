@@ -3,13 +3,13 @@
   <section class="container">
     <h1 class="es-heading">Upgrade Guide</h1>
     <p>From version</p>
-    <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.fromVersion}}
+    <PowerSelect @searchEnabled={{true}} @options={{this.versions}} @disabled={{false}} @selected={{this.fromVersion}}
       @onChange={{fn (mut this.fromVersion)}} as |version|>
       {{version}}
     </PowerSelect>
     <br />
     <p>To version</p>
-    <PowerSelect @options={{this.versions}} @disabled={{false}} @selected={{this.toVersion}}
+    <PowerSelect @searchEnabled={{true}} @options={{this.versions}} @disabled={{false}} @selected={{this.toVersion}}
       @onChange={{fn (mut this.toVersion)}} as |version|>
       {{version}}
     </PowerSelect>
@@ -19,21 +19,15 @@
     <CliUpdateCommands @toVersion={{this.toVersion}} />
 
     <h2>Ember.js</h2>
-    <ListFeaturesDeprecations
-      @datum={{this.model.emberJSChanges}}
-      @toVersion={{this.toVersion}}
+    <ListFeaturesDeprecations @datum={{this.model.emberJSChanges}} @toVersion={{this.toVersion}}
       @fromVersion={{this.fromVersion}} />
 
     <h2>Ember Data</h2>
-    <ListFeaturesDeprecations
-      @datum={{this.model.emberDataChanges}}
-      @toVersion={{this.toVersion}}
+    <ListFeaturesDeprecations @datum={{this.model.emberDataChanges}} @toVersion={{this.toVersion}}
       @fromVersion={{this.fromVersion}} />
 
     <h2>Ember CLI</h2>
-    <ListFeaturesDeprecations
-      @datum={{this.model.emberCLIChanges}}
-      @toVersion={{this.toVersion}}
+    <ListFeaturesDeprecations @datum={{this.model.emberCLIChanges}} @toVersion={{this.toVersion}}
       @fromVersion={{this.fromVersion}} />
   </section>
 </main>
