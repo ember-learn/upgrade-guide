@@ -1,31 +1,43 @@
-<h3>New features (COUNT)</h3>
+<h3>New features</h3>
+{{#if (features-counter @datum @toVersion @fromVersion)}}
+<h4>COUNT: {{features-counter @datum @toVersion @fromVersion}}</h4>
 <ul>
   {{#each @datum as |model|}}
-    {{#if (and (lte model.version @toVersion) (gt model.version @fromVersion))}}
-      {{#each model.changes as |change|}}
-        {{#if change.feature}}
-          <p>
-            {{change.title}}: 
-            <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">({{model.id}})</a>
-          </p>
-        {{/if}}
-      {{/each}}
-    {{/if}}
+  {{#if (and (lte model.version @toVersion) (gt model.version @fromVersion))}}
+  {{#each model.changes as |change|}}
+  {{#if change.feature}}
+  <p>
+    {{change.title}}:
+    <a href={{change.link}} rel="noopener noreferrer"
+      title="Check version {{model.id}} link for more info">({{model.data.version}})</a>
+  </p>
+  {{/if}}
+  {{/each}}
+  {{/if}}
   {{/each}}
 </ul>
+{{else}}
+<p>No new features</p>
+{{/if}}
 
 <h3>Deprecations</h3>
+{{#if (deprecations-counter @datum @toVersion @fromVersion)}}
+<h4>COUNT: {{deprecations-counter @datum @toVersion @fromVersion}}</h4>
 <ul>
   {{#each @datum as |model|}}
-    {{#if (and (lte model.version @toVersion) (gt model.version @fromVersion))}}
-      {{#each model.changes as |change|}}
-        {{#if change.deprecation}}
-          <p>
-            {{change.title}}: 
-            <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">({{model.id}})</a>
-          </p>
-        {{/if}}
-      {{/each}}
-    {{/if}}
+  {{#if (and (lte model.version @toVersion) (gt model.version @fromVersion))}}
+  {{#each model.changes as |change|}}
+  {{#if change.deprecation}}
+  <p>
+    {{change.title}}:
+    <a href={{change.link}} rel="noopener noreferrer"
+      title="Check version {{model.id}} link for more info">({{model.data.version}})</a>
+  </p>
+  {{/if}}
+  {{/each}}
+  {{/if}}
   {{/each}}
 </ul>
+{{else}}
+<p>No deprecations</p>
+{{/if}}
