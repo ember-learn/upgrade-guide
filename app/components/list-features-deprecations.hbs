@@ -3,17 +3,16 @@
 <h4>COUNT: {{features-counter @datum @toVersion @fromVersion}}</h4>
 <ul>
   {{#each @datum as |model|}}
-  {{#if (and (lte model.version @toVersion) (gt model.version @fromVersion))}}
-  {{#each model.changes as |change|}}
-  {{#if change.feature}}
-  <p>
-    {{change.title}}:
-    <a href={{change.link}} rel="noopener noreferrer"
-      title="Check version {{model.id}} link for more info">({{model.data.version}})</a>
-  </p>
-  {{/if}}
-  {{/each}}
-  {{/if}}
+    {{#if (and (compare-versions model.version @toVersion) (compare-versions model.version @fromVersion '>'))}}
+      {{#each model.changes as |change|}}
+        {{#if change.feature}}
+          <p>
+            {{change.title}}: 
+            <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">({{model.data.version}})</a>
+          </p>
+        {{/if}}
+      {{/each}}
+    {{/if}}
   {{/each}}
 </ul>
 {{else}}
@@ -25,17 +24,16 @@
 <h4>COUNT: {{deprecations-counter @datum @toVersion @fromVersion}}</h4>
 <ul>
   {{#each @datum as |model|}}
-  {{#if (and (lte model.version @toVersion) (gt model.version @fromVersion))}}
-  {{#each model.changes as |change|}}
-  {{#if change.deprecation}}
-  <p>
-    {{change.title}}:
-    <a href={{change.link}} rel="noopener noreferrer"
-      title="Check version {{model.id}} link for more info">({{model.data.version}})</a>
-  </p>
-  {{/if}}
-  {{/each}}
-  {{/if}}
+    {{#if (and (compare-versions model.version @toVersion) (compare-versions model.version @fromVersion '>'))}}
+      {{#each model.changes as |change|}}
+        {{#if change.deprecation}}
+          <p>
+            {{change.title}}: 
+            <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">({{model.data.version}})</a>
+          </p>
+        {{/if}}
+      {{/each}}
+    {{/if}}
   {{/each}}
 </ul>
 {{else}}
