@@ -1,7 +1,3 @@
-import Model, { attr } from '@ember-data/model';
+import CommonModel from './private/-common';
 
-export default class EmberCliModel extends Model {
-  @attr changes;
-
-  @attr version;
-}
+export default class EmberCliModel extends CommonModel {}
