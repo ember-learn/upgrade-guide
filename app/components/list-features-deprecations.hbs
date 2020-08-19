@@ -6,12 +6,12 @@
     {{#each this.model as |model|}}
       {{#each model.changes as |change|}}
         {{#if change.feature}}
-          <p data-test-feature={{model.version}}>
+          <li data-test-feature={{model.version}}>
             {{change.title}}: 
             <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">
               ({{model.version}})
             </a>
-          </p>
+          </li>
         {{/if}}
       {{/each}}
     {{/each}}
@@ -28,12 +28,12 @@
     {{#each this.model as |model|}}
       {{#each model.changes as |change|}}
         {{#if change.deprecation}}
-          <p data-test-deprecation={{model.version}}>
+          <li data-test-deprecation={{model.version}}>
             {{change.title}}: 
             <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">
               ({{model.version}})
             </a>
-          </p>
+          </li>
         {{/if}}
       {{/each}}
     {{/each}}
