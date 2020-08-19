@@ -2,8 +2,7 @@
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a working repository for the Ember Upgrade Guide.
 
 ## Prerequisites
 
@@ -30,6 +29,54 @@ You will need the following things properly installed on your computer.
 
 Make use of the many generators for code, try `ember help generate` for more details
 
+### Adding the latest Ember version 
+To add new versions of Ember use the following commands in your terminal:
+
+```ember generate upgrade-ember-model X.XX```
+```ember generate upgrade-data-model X.XX```
+```ember generate upgrade-cli-model X.XX```
+
+You will have to manually add the new version to the VERSIONS array
+```/upgrade-guide/app/models/versions.js```
+
+The structure of generated markdown files is as follows:
+
+```
+---
+version: "3.20"
+changes:
+  -
+    deprecation: true
+    title: ""
+    link: ""
+  -
+    feature: true
+    title: ""
+    link: ""
+---
+```
+
+If the release has no features or depresaions feel free to delete that section. If it has multiple deprecations/features you will need to manually copy paste those sections. 
+
+For example:
+
+```
+---
+version: ""
+changes:
+  -
+    deprecation: true
+    title: ""
+    link: ""
+  -
+    deprecation: true
+    title: ""
+    link: ""
+---
+```
+
+**PLEASE NOTE VERSION MUST BE A STRING**
+
 ### Running Tests
 
 * `ember test`
@@ -49,6 +96,16 @@ Make use of the many generators for code, try `ember help generate` for more det
 ### Deploying
 
 Specify what it takes to deploy your app.
+
+### Contributing
+
+Have a look at open [issues](https://github.com/ember-learn/upgrade-guide/issues). 
+
+### Contributers
+Abhilash LR
+Jenny Judova
+Kenneth Larsen 
+Robert Jackson 
 
 ## Further Reading / Useful Links
 
