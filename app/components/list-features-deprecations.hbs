@@ -8,7 +8,7 @@
         {{#if change.feature}}
           <li data-test-feature={{model.version}}>
             {{change.title}}: 
-            <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">
+            <a href={{change.link}} rel="noopener noreferrer" target="_blank" title="Check version {{model.id}} link for more info">
               ({{model.version}})
             </a>
           </li>
@@ -30,7 +30,7 @@
         {{#if change.deprecation}}
           <li data-test-deprecation={{model.version}}>
             {{change.title}}: 
-            <a href={{change.link}} rel="noopener noreferrer" title="Check version {{model.id}} link for more info">
+            <a href={{change.link}} rel="noopener noreferrer" target="_blank" title="Check version {{model.id}} link for more info">
               ({{model.version}})
             </a>
           </li>
