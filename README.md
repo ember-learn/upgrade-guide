@@ -1,3 +1,5 @@
+[![This project uses GitHub Actions for continuous integration.](https://github.com/ember-learn/upgrade-guide/workflows/CI/badge.svg)](https://github.com/ember-learn/upgrade-guide/actions?query=workflow%3ACI)
+
 # upgrade-guide
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
