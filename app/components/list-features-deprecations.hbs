@@ -6,7 +6,7 @@
     {{#each this.model as |model|}}
       {{#each model.changes as |change|}}
         {{#if change.feature}}
-          <li data-test-feature={{model.version}}>
+          <li data-test-feature>
             {{change.title}}: 
             <a href={{change.link}} rel="noopener noreferrer" target="_blank" title="Check version {{model.id}} link for more info">
               ({{model.version}})
@@ -17,7 +17,7 @@
     {{/each}}
   </ul>
 {{else}}
-  <p data-test-no-feature>No new features</p>
+  <p>No new features</p>
 {{/if}}
 
 <h3>Deprecations</h3>
@@ -28,7 +28,7 @@
     {{#each this.model as |model|}}
       {{#each model.changes as |change|}}
         {{#if change.deprecation}}
-          <li data-test-deprecation={{model.version}}>
+          <li data-test-deprecation>
             {{change.title}}: 
             <a href={{change.link}} rel="noopener noreferrer" target="_blank" title="Check version {{model.id}} link for more info">
               ({{model.version}})
@@ -39,5 +39,5 @@
     {{/each}}
   </ul>
 {{else}}
-  <p data-test-no-deprecation>No new deprecations</p>
+  <p>No new deprecations</p>
 {{/if}}
