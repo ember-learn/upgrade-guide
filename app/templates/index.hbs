@@ -50,24 +50,30 @@
     @toVersion={{this.toVersion}}
   />
 
-  <h2>Ember.js</h2>
-  <ListFeaturesDeprecations
-    @datum={{@model.emberJSChanges}}
-    @fromVersion={{this.fromVersion}}
-    @toVersion={{this.toVersion}}
-  />
+  <div data-test-package="Ember.js">
+    <h2>Ember.js</h2>
+    <ListFeaturesDeprecations
+      @datum={{@model.emberJSChanges}}
+      @fromVersion={{this.fromVersion}}
+      @toVersion={{this.toVersion}}
+    />
+  </div>
 
-  <h2>Ember Data</h2>
-  <ListFeaturesDeprecations
-    @datum={{@model.emberDataChanges}}
-    @fromVersion={{this.fromVersion}}
-    @toVersion={{this.toVersion}}
-  />
+  <div data-test-package="Ember Data">
+    <h2>Ember Data</h2>
+    <ListFeaturesDeprecations
+      @datum={{@model.emberDataChanges}}
+      @fromVersion={{this.fromVersion}}
+      @toVersion={{this.toVersion}}
+    />
+  </div>
 
-  <h2>Ember CLI</h2>
-  <ListFeaturesDeprecations
-    @datum={{@model.emberCLIChanges}}
-    @fromVersion={{this.fromVersion}}
-    @toVersion={{this.toVersion}}
-  />
+  <div data-test-package="Ember CLI">
+    <h2>Ember CLI</h2>
+    <ListFeaturesDeprecations
+      @datum={{@model.emberCLIChanges}}
+      @fromVersion={{this.fromVersion}}
+      @toVersion={{this.toVersion}}
+    />
+  </div>
 </section>

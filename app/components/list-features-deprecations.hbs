@@ -7,8 +7,14 @@
       {{#each model.changes as |change|}}
         {{#if change.feature}}
           <li data-test-feature>
-            {{change.title}}: 
-            <a href={{change.link}} rel="noopener noreferrer" target="_blank" title="Check version {{model.id}} link for more info">
+            <span data-test-field="Title">{{change.title}}</span>
+            <a
+              data-test-field="Version"
+              href={{change.link}}
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Check version {{model.version}} link for more info"
+            >
               ({{model.version}})
             </a>
           </li>
@@ -29,8 +35,14 @@
       {{#each model.changes as |change|}}
         {{#if change.deprecation}}
           <li data-test-deprecation>
-            {{change.title}}: 
-            <a href={{change.link}} rel="noopener noreferrer" target="_blank" title="Check version {{model.id}} link for more info">
+            <span data-test-field="Title">{{change.title}}</span>
+            <a
+              data-test-field="Version"
+              href={{change.link}}
+              rel="noopener noreferrer"
+              target="_blank"
+              title="Check version {{model.version}} link for more info"
+            >
               ({{model.version}})
             </a>
           </li>
