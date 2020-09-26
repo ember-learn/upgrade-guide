@@ -1,79 +1,73 @@
-<EsHeader />
+<section class="container">
+  <h1 class="es-heading">Upgrade Guide</h1>
 
-<main>
-  <section class="container">
-    <h1 class="es-heading">Upgrade Guide</h1>
+  <form
+    data-test-form="Ember Versions"
+    {{on "submit" this.doNotSubmitForm}}
+  >
+    <div class="mb-3">
+      <label for="from-version">From version</label>
 
-    <form
-      data-test-form="Ember Versions"
-      {{on "submit" this.doNotSubmitForm}}
-    >
-      <div class="mb-3">
-        <label for="from-version">From version</label>
+      <select
+        data-test-select="From Version"
+        id="from-version"
+        {{on "input" this.updateFromVersion}}
+      >
+        {{#each this.versions as |version|}}
+          <option
+            selected={{eq version this.fromVersion}}
+            value={{version}}
+          >
+            {{version}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
 
-        <select
-          data-test-select="From Version"
-          id="from-version"
-          {{on "input" this.updateFromVersion}}
-        >
-          {{#each this.versions as |version|}}
-            <option
-              selected={{eq version this.fromVersion}}
-              value={{version}}
-            >
-              {{version}}
-            </option>
-          {{/each}}
-        </select>
-      </div>
+    <div>
+      <label for="to-version">To version</label>
 
-      <div>
-        <label for="to-version">To version</label>
-
-        <select
-          data-test-select="To Version"
-          id="to-version"
-          {{on "input" this.updateToVersion}}
-        >
-          {{#each this.versions as |version|}}
-            <option
-              selected={{eq version this.toVersion}}
-              value={{version}}
-            >
-              {{version}}
-            </option>
-          {{/each}}
-        </select>
-      </div>
-    </form>
+      <select
+        data-test-select="To Version"
+        id="to-version"
+        {{on "input" this.updateToVersion}}
+      >
+        {{#each this.versions as |version|}}
+          <option
+            selected={{eq version this.toVersion}}
+            value={{version}}
+          >
+            {{version}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+  </form>
 
 
-    <h2>Upgrading from {{this.fromVersion}} to {{this.toVersion}}</h2>
-    <CliUpdateCommands
-      @toVersion={{this.toVersion}}
-    />
+  <h2>Upgrading from {{this.fromVersion}} to {{this.toVersion}}</h2>
+  <CliUpdateCommands
+    @toVersion={{this.toVersion}}
+  />
 
-    <h2>Ember.js</h2>
-    <ListFeaturesDeprecations
-      @datum={{@model.emberJSChanges}}
-      @fromVersion={{this.fromVersion}}
-      @toVersion={{this.toVersion}}
-    />
+  <h2>Ember.js</h2>
+  <ListFeaturesDeprecations
+    @datum={{@model.emberJSChanges}}
+    @fromVersion={{this.fromVersion}}
+    @toVersion={{this.toVersion}}
+  />
 
-    <h2>Ember Data</h2>
-    <ListFeaturesDeprecations
-      @datum={{@model.emberDataChanges}}
-      @fromVersion={{this.fromVersion}}
-      @toVersion={{this.toVersion}}
-    />
+  <h2>Ember Data</h2>
+  <ListFeaturesDeprecations
+    @datum={{@model.emberDataChanges}}
+    @fromVersion={{this.fromVersion}}
+    @toVersion={{this.toVersion}}
+  />
 
-    <h2>Ember CLI</h2>
-    <ListFeaturesDeprecations
-      @datum={{@model.emberCLIChanges}}
-      @fromVersion={{this.fromVersion}}
-      @toVersion={{this.toVersion}}
-    />
-  </section>
-</main>
-
-<EsFooter />
+  <h2>Ember CLI</h2>
+  <ListFeaturesDeprecations
+    @datum={{@model.emberCLIChanges}}
+    @fromVersion={{this.fromVersion}}
+    @toVersion={{this.toVersion}}
+  />
+</section>
