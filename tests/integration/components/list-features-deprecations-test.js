@@ -104,28 +104,28 @@ module('Integration | Component | list-features-deprecations', function (
     assert
       .dom(features[0])
       .hasText(
-        'Feature #1: (2.18)',
+        'Feature #1 (2.18)',
         'We see the correct title for the 1st feature.'
       );
 
     assert
       .dom(features[1])
       .hasText(
-        'Feature #1: (3.1)',
+        'Feature #1 (3.1)',
         'We see the correct title for the 2nd feature.'
       );
 
     assert
       .dom(features[2])
       .hasText(
-        'Feature #2: (3.1)',
+        'Feature #2 (3.1)',
         'We see the correct title for the 3rd feature.'
       );
 
     assert
       .dom(features[3])
       .hasText(
-        'Feature #1: (3.2)',
+        'Feature #1 (3.2)',
         'We see the correct title for the 4th feature.'
       );
 
@@ -141,28 +141,28 @@ module('Integration | Component | list-features-deprecations', function (
     assert
       .dom(deprecations[0])
       .hasText(
-        'Deprecation #1: (2.18)',
+        'Deprecation #1 (2.18)',
         'We see the correct title for the 1st deprecation.'
       );
 
     assert
       .dom(deprecations[1])
       .hasText(
-        'Deprecation #2: (2.18)',
+        'Deprecation #2 (2.18)',
         'We see the correct title for the 2nd deprecation.'
       );
 
     assert
       .dom(deprecations[2])
       .hasText(
-        'Deprecation #1: (3.1)',
+        'Deprecation #1 (3.1)',
         'We see the correct title for the 3rd deprecation.'
       );
 
     assert
       .dom(deprecations[3])
       .hasText(
-        'Deprecation #1: (3.3)',
+        'Deprecation #1 (3.3)',
         'We see the correct title for the 4th deprecation.'
       );
   });
@@ -192,7 +192,7 @@ module('Integration | Component | list-features-deprecations', function (
     assert
       .dom(features[0])
       .hasText(
-        'Feature #1: (3.2)',
+        'Feature #1 (3.2)',
         'We see the correct title for the 1st feature.'
       );
 
@@ -208,7 +208,7 @@ module('Integration | Component | list-features-deprecations', function (
     assert
       .dom(deprecations[0])
       .hasText(
-        'Deprecation #1: (3.3)',
+        'Deprecation #1 (3.3)',
         'We see the correct title for the 1st deprecation.'
       );
   });
@@ -238,21 +238,21 @@ module('Integration | Component | list-features-deprecations', function (
     assert
       .dom(features[0])
       .hasText(
-        'Feature #1: (2.18)',
+        'Feature #1 (2.18)',
         'We see the correct title for the 1st feature.'
       );
 
     assert
       .dom(features[1])
       .hasText(
-        'Feature #1: (3.1)',
+        'Feature #1 (3.1)',
         'We see the correct title for the 2nd feature.'
       );
 
     assert
       .dom(features[2])
       .hasText(
-        'Feature #2: (3.1)',
+        'Feature #2 (3.1)',
         'We see the correct title for the 3rd feature.'
       );
 
@@ -268,21 +268,21 @@ module('Integration | Component | list-features-deprecations', function (
     assert
       .dom(deprecations[0])
       .hasText(
-        'Deprecation #1: (2.18)',
+        'Deprecation #1 (2.18)',
         'We see the correct title for the 1st deprecation.'
       );
 
     assert
       .dom(deprecations[1])
       .hasText(
-        'Deprecation #2: (2.18)',
+        'Deprecation #2 (2.18)',
         'We see the correct title for the 2nd deprecation.'
       );
 
     assert
       .dom(deprecations[2])
       .hasText(
-        'Deprecation #1: (3.1)',
+        'Deprecation #1 (3.1)',
         'We see the correct title for the 3rd deprecation.'
       );
   });
