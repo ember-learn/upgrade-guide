@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { VERSIONS } from '../models/versions';
+import { VERSIONS } from 'upgrade-guide/utils/ember-versions';
 
 export default class IndexController extends Controller {
   queryParams = ['fromVersion', 'toVersion'];
