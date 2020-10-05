@@ -61,7 +61,7 @@ When a new version of Ember is released (for example, version 3.20), we need to 
 First, we add the version number to the `VERSIONS` array:
 
 ```javascript
-// app/models/versions.js
+// app/utils/ember-versions.js
 
 export const VERSIONS = Object.freeze([
   '1.0 Prerelease',
