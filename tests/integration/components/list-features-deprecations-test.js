@@ -9,7 +9,7 @@ module('Integration | Component | list-features-deprecations', function (
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
-    this.datum = [
+    this.allChangeLogs = [
       {
         version: '2.18',
         changes: [
@@ -86,7 +86,7 @@ module('Integration | Component | list-features-deprecations', function (
 
     await render(hbs`
       <ListFeaturesDeprecations
-        @datum={{this.datum}}
+        @allChangeLogs={{this.allChangeLogs}}
         @fromVersion={{this.fromVersion}}
         @toVersion={{this.toVersion}}
       />
@@ -174,7 +174,7 @@ module('Integration | Component | list-features-deprecations', function (
 
     await render(hbs`
       <ListFeaturesDeprecations
-        @datum={{this.datum}}
+        @allChangeLogs={{this.allChangeLogs}}
         @fromVersion={{this.fromVersion}}
         @toVersion={{this.toVersion}}
       />
@@ -220,7 +220,7 @@ module('Integration | Component | list-features-deprecations', function (
 
     await render(hbs`
       <ListFeaturesDeprecations
-        @datum={{this.datum}}
+        @allChangeLogs={{this.allChangeLogs}}
         @fromVersion={{this.fromVersion}}
         @toVersion={{this.toVersion}}
       />
@@ -294,7 +294,7 @@ module('Integration | Component | list-features-deprecations', function (
 
     await render(hbs`
       <ListFeaturesDeprecations
-        @datum={{this.datum}}
+        @allChangeLogs={{this.allChangeLogs}}
         @fromVersion={{this.fromVersion}}
         @toVersion={{this.toVersion}}
       />

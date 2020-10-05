@@ -3,9 +3,9 @@ import { computed } from '@ember/object';
 import { compare } from 'compare-versions';
 
 export default class ListFeaturesDeprecationsComponent extends Component {
-  @computed('args.{datum,fromVersion,toVersion}')
+  @computed('args.{allChangeLogs,fromVersion,toVersion}')
   get model() {
-    return this.args.datum.filter((model) => {
+    return this.args.allChangeLogs.filter((model) => {
       return (
         compare(this.args.toVersion, model.version, '>=') &&
         compare(this.args.fromVersion, model.version, '<')
