@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { VERSIONS } from '../utils/ember-versions';
+import { VERSIONS } from 'upgrade-guide/utils/ember-versions';
 
 export default class EmberVersionsFormComponent extends Component {
   versions = VERSIONS;
