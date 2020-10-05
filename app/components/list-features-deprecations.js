@@ -26,4 +26,24 @@ export default class ListFeaturesDeprecationsComponent extends Component {
       return total + item.deprecationsCount;
     }, 0);
   }
+
+  @computed('relevantChangeLogs')
+  get features() {
+    return this.relevantChangeLogs.reduce((features, changeLog) => {
+      const filteredChanges = changeLog.changes.reduce(
+        (accumulator, currentChange) => {
+          if (currentChange.feature) {
+            accumulator.push({
+              title: currentChange.title,
+              link: currentChange.link,
+              version: changeLog.version,
+            });
+          }
+          return accumulator;
+        },
+        []
+      );
+      return features.concat(filteredChanges);
+    }, []);
+  }
 }
