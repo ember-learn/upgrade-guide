@@ -11,12 +11,4 @@ export default class CommonModel extends Model {
   get deprecations() {
     return (this.changes || []).filterBy('deprecation');
   }
-
-  get featuresCount() {
-    return this.features.length;
-  }
-
-  get deprecationsCount() {
-    return this.deprecations.length;
-  }
 }

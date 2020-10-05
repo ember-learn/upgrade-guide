@@ -1,7 +1,7 @@
 <h3>New features</h3>
-<h4 class="mb-1">Count: {{this.countOfFeatureChanges}}</h4>
+<h4 class="mb-1">Count: {{this.features.length}}</h4>
 
-{{#if this.countOfFeatureChanges}}
+{{#if this.features.length}}
   <ul>
     {{#each this.features as |feature|}}
       <li data-test-feature>
@@ -23,9 +23,9 @@
 {{/if}}
 
 <h3>Deprecations</h3>
-<h4 class="mb-1">Count: {{this.countOfDeprecationChanges}}</h4>
+<h4 class="mb-1">Count: {{this.deprecations.length}}</h4>
 
-{{#if this.countOfDeprecationChanges}}
+{{#if this.deprecations.length}}
   <ul>
     {{#each this.deprecations as |deprecation|}}
       <li data-test-deprecation>

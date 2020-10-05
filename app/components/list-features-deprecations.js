@@ -14,20 +14,6 @@ export default class ListFeaturesDeprecationsComponent extends Component {
   }
 
   @computed('relevantChangeLogs')
-  get countOfFeatureChanges() {
-    return this.relevantChangeLogs.reduce((total = 0, item) => {
-      return total + item.featuresCount;
-    }, 0);
-  }
-
-  @computed('relevantChangeLogs')
-  get countOfDeprecationChanges() {
-    return this.relevantChangeLogs.reduce((total = 0, item) => {
-      return total + item.deprecationsCount;
-    }, 0);
-  }
-
-  @computed('relevantChangeLogs')
   get features() {
     return this.relevantChangeLogs.reduce((features, changeLog) => {
       const filteredChanges = changeLog.changes.reduce(
