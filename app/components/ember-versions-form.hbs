@@ -1,12 +1,22 @@
-<form data-test-form="Ember Versions" {{on "submit" this.submitForm}}>
+<form
+  data-test-form="Ember Versions"
+  {{on "submit" this.submitForm}}
+>
   <div class="mb-3">
     <label for="from-version">From version</label>
 
-    <select data-test-select="From Version" id="from-version" {{on "input" this.updateFromVersion}}>
+    <select
+      data-test-select="From Version"
+      id="from-version"
+      {{on "input" this.updateFromVersion}}
+    >
       {{#each this.versions as |version|}}
-      <option selected={{eq version this.fromVersion}} value={{version}}>
-        {{version}}
-      </option>
+        <option
+          selected={{eq version this.fromVersion}}
+          value={{version}}
+        >
+          {{version}}
+        </option>
       {{/each}}
     </select>
   </div>
@@ -14,11 +24,18 @@
   <div>
     <label for="to-version">To version</label>
 
-    <select data-test-select="To Version" id="to-version" {{on "input" this.updateToVersion}}>
+    <select
+      data-test-select="To Version"
+      id="to-version"
+      {{on "input" this.updateToVersion}}
+    >
       {{#each this.versions as |version|}}
-      <option selected={{eq version this.toVersion}} value={{version}}>
-        {{version}}
-      </option>
+        <option
+          selected={{eq version this.toVersion}}
+          value={{version}}
+        >
+          {{version}}
+        </option>
       {{/each}}
     </select>
   </div>
