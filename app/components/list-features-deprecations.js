@@ -4,25 +4,25 @@ import { compare } from 'compare-versions';
 
 export default class ListFeaturesDeprecationsComponent extends Component {
   @computed('args.{allChangeLogs,fromVersion,toVersion}')
-  get model() {
-    return this.args.allChangeLogs.filter((model) => {
+  get relevantChangeLogs() {
+    return this.args.allChangeLogs.filter((changeLog) => {
       return (
-        compare(this.args.toVersion, model.version, '>=') &&
-        compare(this.args.fromVersion, model.version, '<')
+        compare(this.args.toVersion, changeLog.version, '>=') &&
+        compare(this.args.fromVersion, changeLog.version, '<')
       );
     });
   }
 
-  @computed('model')
+  @computed('relevantChangeLogs')
   get countOfFeatureChanges() {
-    return this.model.reduce((total = 0, item) => {
+    return this.relevantChangeLogs.reduce((total = 0, item) => {
       return total + item.featuresCount;
     }, 0);
   }
 
-  @computed('model')
+  @computed('relevantChangeLogs')
   get countOfDeprecationChanges() {
-    return this.model.reduce((total = 0, item) => {
+    return this.relevantChangeLogs.reduce((total = 0, item) => {
       return total + item.deprecationsCount;
     }, 0);
   }
