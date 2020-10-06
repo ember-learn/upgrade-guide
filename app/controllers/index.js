@@ -10,15 +10,8 @@ export default class IndexController extends Controller {
   @tracked fromVersion = '3.15';
   @tracked toVersion = VERSIONS[VERSIONS.length - 1];
 
-  @action doNotSubmitForm(event) {
-    event.preventDefault();
-  }
-
-  @action updateFromVersion(event) {
-    this.fromVersion = event.target.value;
-  }
-
-  @action updateToVersion(event) {
-    this.toVersion = event.target.value;
+  @action displayChanges({ fromVersion, toVersion }) {
+    this.fromVersion = fromVersion;
+    this.toVersion = toVersion;
   }
 }
