@@ -1,48 +1,9 @@
 <section class="container">
   <h1 class="es-heading">Upgrade Guide</h1>
 
-  <form
-    data-test-form="Ember Versions"
-    {{on "submit" this.doNotSubmitForm}}
-  >
-    <div class="mb-3">
-      <label for="from-version">From version</label>
-
-      <select
-        data-test-select="From Version"
-        id="from-version"
-        {{on "input" this.updateFromVersion}}
-      >
-        {{#each this.versions as |version|}}
-          <option
-            selected={{eq version this.fromVersion}}
-            value={{version}}
-          >
-            {{version}}
-          </option>
-        {{/each}}
-      </select>
-    </div>
-
-    <div>
-      <label for="to-version">To version</label>
-
-      <select
-        data-test-select="To Version"
-        id="to-version"
-        {{on "input" this.updateToVersion}}
-      >
-        {{#each this.versions as |version|}}
-          <option
-            selected={{eq version this.toVersion}}
-            value={{version}}
-          >
-            {{version}}
-          </option>
-        {{/each}}
-      </select>
-    </div>
-  </form>
+  <EmberVersionsForm
+    @onSubmit={{displayChanges}}
+  />
 
 
   <h2>Upgrading from {{this.fromVersion}} to {{this.toVersion}}</h2>
