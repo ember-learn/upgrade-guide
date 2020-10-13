@@ -6,7 +6,13 @@ import { filterBy } from '@ember/object/computed';
 export default class ListFeaturesDeprecationsComponent extends Component {
   @computed('args.{allChangeLogs,fromVersion,toVersion}')
   get relevantChangeLogs() {
-    return this.args.allChangeLogs.filter((changeLog) => {
+    const { allChangeLogs } = this.args;
+
+    if (!allChangeLogs) {
+      return [];
+    }
+
+    return allChangeLogs.filter((changeLog) => {
       return (
         compare(this.args.toVersion, changeLog.version, '>=') &&
         compare(this.args.fromVersion, changeLog.version, '<')
