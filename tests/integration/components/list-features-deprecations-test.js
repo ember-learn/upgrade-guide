@@ -9,7 +9,7 @@ module('Integration | Component | list-features-deprecations', function (
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
-    this.datum = [
+    this.allChangeLogs = [
       {
         version: '2.18',
         changes: [
@@ -26,14 +26,10 @@ module('Integration | Component | list-features-deprecations', function (
             title: 'Deprecation #2',
           },
         ],
-        featuresCount: 1,
-        deprecationsCount: 2,
       },
       {
         version: '3.0',
         changes: [],
-        featuresCount: 0,
-        deprecationsCount: 0,
       },
       {
         version: '3.1',
@@ -51,8 +47,6 @@ module('Integration | Component | list-features-deprecations', function (
             title: 'Deprecation #1',
           },
         ],
-        featuresCount: 2,
-        deprecationsCount: 1,
       },
       {
         version: '3.2',
@@ -62,8 +56,6 @@ module('Integration | Component | list-features-deprecations', function (
             title: 'Feature #1',
           },
         ],
-        featuresCount: 1,
-        deprecationsCount: 0,
       },
       {
         version: '3.3',
@@ -73,8 +65,6 @@ module('Integration | Component | list-features-deprecations', function (
             title: 'Deprecation #1',
           },
         ],
-        featuresCount: 0,
-        deprecationsCount: 1,
       },
     ];
   });
@@ -86,7 +76,7 @@ module('Integration | Component | list-features-deprecations', function (
 
     await render(hbs`
       <ListFeaturesDeprecations
-        @datum={{this.datum}}
+        @allChangeLogs={{this.allChangeLogs}}
         @fromVersion={{this.fromVersion}}
         @toVersion={{this.toVersion}}
       />
@@ -174,7 +164,7 @@ module('Integration | Component | list-features-deprecations', function (
 
     await render(hbs`
       <ListFeaturesDeprecations
-        @datum={{this.datum}}
+        @allChangeLogs={{this.allChangeLogs}}
         @fromVersion={{this.fromVersion}}
         @toVersion={{this.toVersion}}
       />
@@ -220,7 +210,7 @@ module('Integration | Component | list-features-deprecations', function (
 
     await render(hbs`
       <ListFeaturesDeprecations
-        @datum={{this.datum}}
+        @allChangeLogs={{this.allChangeLogs}}
         @fromVersion={{this.fromVersion}}
         @toVersion={{this.toVersion}}
       />
@@ -294,7 +284,7 @@ module('Integration | Component | list-features-deprecations', function (
 
     await render(hbs`
       <ListFeaturesDeprecations
-        @datum={{this.datum}}
+        @allChangeLogs={{this.allChangeLogs}}
         @fromVersion={{this.fromVersion}}
         @toVersion={{this.toVersion}}
       />

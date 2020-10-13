@@ -1,25 +1,21 @@
 <h3>New features</h3>
-<h4 class="mb-1">Count: {{this.countOfFeatureChanges}}</h4>
+<h4 class="mb-1">Count: {{this.features.length}}</h4>
 
-{{#if this.countOfFeatureChanges}}
+{{#if this.features}}
   <ul>
-    {{#each this.model as |model|}}
-      {{#each model.changes as |change|}}
-        {{#if change.feature}}
-          <li data-test-feature>
-            <span data-test-field="Title">{{change.title}}</span>
-            <a
-              data-test-field="Version"
-              href={{change.link}}
-              rel="noopener noreferrer"
-              target="_blank"
-              title="Check version {{model.version}} link for more info"
-            >
-              ({{model.version}})
-            </a>
-          </li>
-        {{/if}}
-      {{/each}}
+    {{#each this.features as |feature|}}
+      <li data-test-feature>
+        <span data-test-field="Title">{{feature.title}}</span>
+        <a
+          data-test-field="Version"
+          href={{feature.link}}
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Check version {{feature.version}} link for more info"
+        >
+          ({{feature.version}})
+        </a>
+      </li>
     {{/each}}
   </ul>
 {{else}}
@@ -27,27 +23,23 @@
 {{/if}}
 
 <h3>Deprecations</h3>
-<h4 class="mb-1">Count: {{this.countOfDeprecationChanges}}</h4>
+<h4 class="mb-1">Count: {{this.deprecations.length}}</h4>
 
-{{#if this.countOfDeprecationChanges}}
+{{#if this.deprecations}}
   <ul>
-    {{#each this.model as |model|}}
-      {{#each model.changes as |change|}}
-        {{#if change.deprecation}}
-          <li data-test-deprecation>
-            <span data-test-field="Title">{{change.title}}</span>
-            <a
-              data-test-field="Version"
-              href={{change.link}}
-              rel="noopener noreferrer"
-              target="_blank"
-              title="Check version {{model.version}} link for more info"
-            >
-              ({{model.version}})
-            </a>
-          </li>
-        {{/if}}
-      {{/each}}
+    {{#each this.deprecations as |deprecation|}}
+      <li data-test-deprecation>
+        <span data-test-field="Title">{{deprecation.title}}</span>
+        <a
+          data-test-field="Version"
+          href={{deprecation.link}}
+          rel="noopener noreferrer"
+          target="_blank"
+          title="Check version {{deprecation.version}} link for more info"
+        >
+          ({{deprecation.version}})
+        </a>
+      </li>
     {{/each}}
   </ul>
 {{else}}

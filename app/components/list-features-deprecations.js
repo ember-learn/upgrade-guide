@@ -1,29 +1,40 @@
 import Component from '@glimmer/component';
 import { computed } from '@ember/object';
 import { compare } from 'compare-versions';
+import { filterBy } from '@ember/object/computed';
 
 export default class ListFeaturesDeprecationsComponent extends Component {
-  @computed('args.{datum,fromVersion,toVersion}')
-  get model() {
-    return this.args.datum.filter((model) => {
+  @computed('args.{allChangeLogs,fromVersion,toVersion}')
+  get relevantChangeLogs() {
+    const { allChangeLogs } = this.args;
+
+    if (!allChangeLogs) {
+      return [];
+    }
+
+    return allChangeLogs.filter((changeLog) => {
       return (
-        compare(this.args.toVersion, model.version, '>=') &&
-        compare(this.args.fromVersion, model.version, '<')
+        compare(this.args.toVersion, changeLog.version, '>=') &&
+        compare(this.args.fromVersion, changeLog.version, '<')
       );
     });
   }
 
-  @computed('model')
-  get countOfFeatureChanges() {
-    return this.model.reduce((total = 0, item) => {
-      return total + item.featuresCount;
-    }, 0);
+  @computed('relevantChangeLogs')
+  get flattenedChangeLogs() {
+    return this.relevantChangeLogs.flatMap((changeLog) => {
+      return changeLog.changes.map((currentChange) => {
+        return {
+          version: changeLog.version,
+          ...currentChange,
+        };
+      });
+    });
   }
 
-  @computed('model')
-  get countOfDeprecationChanges() {
-    return this.model.reduce((total = 0, item) => {
-      return total + item.deprecationsCount;
-    }, 0);
-  }
+  @filterBy('flattenedChangeLogs', 'deprecation')
+  deprecations;
+
+  @filterBy('flattenedChangeLogs', 'feature')
+  features;
 }
