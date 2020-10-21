@@ -55,6 +55,6 @@ module('Integration | Component | ember-versions-form', function (hooks) {
 
     assert
       .dom('[data-test-select="To Version"]')
-      .hasValue('3.18', 'The select option shows the new value.'); 
+      .hasValue('3.18', 'The select option shows the new value.');
   });
 });

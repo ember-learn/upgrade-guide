@@ -21,14 +21,10 @@ module('Acceptance | index', function (hooks) {
     await fillIn('[data-test-select="From Version"]', '2.17');
     await fillIn('[data-test-select="To Version"]', '3.3');
 
-    assert.strictEqual(
-      currentURL(),
-      '/',
-      'We see the correct URL.'
-    );
+    assert.strictEqual(currentURL(), '/', 'We see the correct URL.');
   });
 
-  test('When we submit the form, we are redirected to the changes route', async function(assert){
+  test('When we submit the form, we are redirected to the changes route', async function (assert) {
     await visit('/');
     await fillIn('[data-test-select="From Version"]', '2.17');
     await fillIn('[data-test-select="To Version"]', '3.3');
@@ -40,7 +36,6 @@ module('Acceptance | index', function (hooks) {
       '/changes?fromVersion=2.17&toVersion=3.3',
       'We see the correct URL.'
     );
-
   });
 
   test('When we submit the form, we see the features and deprecations that occurred', async function (assert) {
@@ -51,7 +46,7 @@ module('Acceptance | index', function (hooks) {
     await click('[data-test-button="Find Changes"]');
 
     // Check Ember.js
-    let features = findAll( 
+    let features = findAll(
       '[data-test-package="Ember.js"] [data-test-feature]'
     );
     let deprecations = findAll(
@@ -178,8 +173,8 @@ module('Acceptance | index', function (hooks) {
       version: '3.2',
     });
   });
-  
-  test('When we submit the form with fromVersion greater than toVersion, we see 0 features and 0 deprecations', async function(assert){
+
+  test('When we submit the form with fromVersion greater than toVersion, we see 0 features and 0 deprecations', async function (assert) {
     await visit('/');
     await fillIn('[data-test-select="To Version"]', '2.17');
     await fillIn('[data-test-select="From Version"]', '3.3');
@@ -187,7 +182,7 @@ module('Acceptance | index', function (hooks) {
     await click('[data-test-button="Find Changes"]');
 
     // Check Ember.js
-    let features = findAll( 
+    let features = findAll(
       '[data-test-package="Ember.js"] [data-test-feature]'
     );
     let deprecations = findAll(
@@ -205,7 +200,5 @@ module('Acceptance | index', function (hooks) {
       0,
       'We see that 0 deprecations were added to Ember.js between 3.3 and 2.17.'
     );
-
   });
-
 });
