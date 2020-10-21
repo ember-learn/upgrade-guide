@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { currentURL, fillIn, findAll, visit } from '@ember/test-helpers';
+import { click, currentURL, fillIn, findAll, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupFeatureAndDeprecationAssertions from 'upgrade-guide/tests/helpers/features-deprecations';
 
@@ -16,16 +16,31 @@ module('Acceptance | index', function (hooks) {
   });
 
   // TODO: Update the form and routing so that the URL does NOT change.
-  test('When we select Ember versions, the URL includes fromVersion and toVersion as query parameters', async function (assert) {
+  test('When we select Ember versions, the URL does not change', async function (assert) {
     await visit('/');
     await fillIn('[data-test-select="From Version"]', '2.17');
     await fillIn('[data-test-select="To Version"]', '3.3');
 
     assert.strictEqual(
       currentURL(),
-      '/?fromVersion=2.17&toVersion=3.3',
+      '/',
       'We see the correct URL.'
     );
+  });
+
+  test('When we submit the form, we are redirected to the changes route', async function(assert){
+    await visit('/');
+    await fillIn('[data-test-select="From Version"]', '2.17');
+    await fillIn('[data-test-select="To Version"]', '3.3');
+
+    await click('[data-test-button="Find Changes"]');
+
+    assert.strictEqual(
+      currentURL(),
+      '/changes?fromVersion=2.17&toVersion=3.3',
+      'We see the correct URL.'
+    );
+
   });
 
   test('When we submit the form, we see the features and deprecations that occurred', async function (assert) {
@@ -33,8 +48,10 @@ module('Acceptance | index', function (hooks) {
     await fillIn('[data-test-select="From Version"]', '2.17');
     await fillIn('[data-test-select="To Version"]', '3.3');
 
+    await click('[data-test-button="Find Changes"]');
+
     // Check Ember.js
-    let features = findAll(
+    let features = findAll( 
       '[data-test-package="Ember.js"] [data-test-feature]'
     );
     let deprecations = findAll(
@@ -161,4 +178,34 @@ module('Acceptance | index', function (hooks) {
       version: '3.2',
     });
   });
+  
+  test('When we submit the form with fromVersion greater than toVersion, we see 0 features and 0 deprecations', async function(assert){
+    await visit('/');
+    await fillIn('[data-test-select="To Version"]', '2.17');
+    await fillIn('[data-test-select="From Version"]', '3.3');
+
+    await click('[data-test-button="Find Changes"]');
+
+    // Check Ember.js
+    let features = findAll( 
+      '[data-test-package="Ember.js"] [data-test-feature]'
+    );
+    let deprecations = findAll(
+      '[data-test-package="Ember.js"] [data-test-deprecation]'
+    );
+
+    assert.strictEqual(
+      features.length,
+      0,
+      'We see that 0 features were added to Ember.js between 3.3 and 2.17.'
+    );
+
+    assert.strictEqual(
+      deprecations.length,
+      0,
+      'We see that 0 deprecations were added to Ember.js between 3.3 and 2.17.'
+    );
+
+  });
+
 });

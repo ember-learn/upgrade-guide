@@ -23,11 +23,9 @@ export default class EmberVersionsFormComponent extends Component {
 
   @action updateFromVersion(event) {
     this.fromVersion = event.target.value;
-    this.submitForm(event);
   }
 
   @action updateToVersion(event) {
     this.toVersion = event.target.value;
-    this.submitForm(event);
   }
 }
