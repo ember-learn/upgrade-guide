@@ -6,12 +6,10 @@ export default class IndexController extends Controller {
   @service router;
 
   @action displayChanges({ fromVersion, toVersion }) {
-    this.fromVersion = fromVersion;
-    this.toVersion = toVersion;
     this.router.transitionTo('changes', {
       queryParams: {
-        fromVersion: this.fromVersion,
-        toVersion: this.toVersion,
+        fromVersion,
+        toVersion,
       },
     });
   }
