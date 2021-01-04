@@ -11,7 +11,7 @@ This is a working repository for the Ember Upgrade Guide.
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
+* [Node.js](https://nodejs.org/)
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 
@@ -20,7 +20,7 @@ You will need the following things properly installed on your computer.
 
 * `git clone <repository-url>` this repository
 * `cd upgrade-guide`
-* `npm install`
+* `yarn install`
 
 
 ## Running / Development
@@ -31,19 +31,17 @@ You will need the following things properly installed on your computer.
 
 ### Running Tests
 
-* `ember test`
-* `ember test --server`
+* `yarn test`
+* `yarn test --server`
 
 ### Linting
 
-* `npm run lint:hbs`
-* `npm run lint:js`
-* `npm run lint:js -- --fix`
+* `yarn lint`
+* `yarn lint:js --fix`
 
 ### Building
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+* `yarn build` (production)
 
 ### Deploying
 
