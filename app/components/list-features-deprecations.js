@@ -1,13 +1,10 @@
 import Component from '@glimmer/component';
+import { createCache, getValue } from '@glimmer/tracking/primitives/cache';
 import { compare } from 'compare-versions';
 
 export default class ListFeaturesDeprecationsComponent extends Component {
-  get relevantChangeLogs() {
-    const { allChangeLogs } = this.args;
-
-    if (!allChangeLogs) {
-      return [];
-    }
+  #relevantChangeLogs = createCache(() => {
+    const allChangeLogs = this.args.allChangeLogs ?? [];
 
     return allChangeLogs.filter((changeLog) => {
       return (
@@ -15,9 +12,13 @@ export default class ListFeaturesDeprecationsComponent extends Component {
         compare(this.args.fromVersion, changeLog.version, '<')
       );
     });
+  });
+
+  get relevantChangeLogs() {
+    return getValue(this.#relevantChangeLogs);
   }
 
-  get flattenedChangeLogs() {
+  #flattenedChangeLogs = createCache(() => {
     return this.relevantChangeLogs.flatMap((changeLog) => {
       return changeLog.changes.map((currentChange) => {
         return {
@@ -26,6 +27,10 @@ export default class ListFeaturesDeprecationsComponent extends Component {
         };
       });
     });
+  });
+
+  get flattenedChangeLogs() {
+    return getValue(this.#flattenedChangeLogs);
   }
 
   get deprecations() {
