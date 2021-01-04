@@ -20,10 +20,12 @@ export default class ListFeaturesDeprecationsComponent extends Component {
 
   #flattenedChangeLogs = createCache(() => {
     return this.relevantChangeLogs.flatMap((changeLog) => {
-      return changeLog.changes.map((currentChange) => {
+      const changes = changeLog.changes ?? [];
+
+      return changes.map((change) => {
         return {
           version: changeLog.version,
-          ...currentChange,
+          ...change,
         };
       });
     });
