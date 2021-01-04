@@ -1,10 +1,7 @@
 import Component from '@glimmer/component';
-import { computed } from '@ember/object';
 import { compare } from 'compare-versions';
-import { filterBy } from '@ember/object/computed';
 
 export default class ListFeaturesDeprecationsComponent extends Component {
-  @computed('args.{allChangeLogs,fromVersion,toVersion}')
   get relevantChangeLogs() {
     const { allChangeLogs } = this.args;
 
@@ -20,7 +17,6 @@ export default class ListFeaturesDeprecationsComponent extends Component {
     });
   }
 
-  @computed('relevantChangeLogs')
   get flattenedChangeLogs() {
     return this.relevantChangeLogs.flatMap((changeLog) => {
       return changeLog.changes.map((currentChange) => {
@@ -32,9 +28,11 @@ export default class ListFeaturesDeprecationsComponent extends Component {
     });
   }
 
-  @filterBy('flattenedChangeLogs', 'deprecation')
-  deprecations;
+  get deprecations() {
+    return this.flattenedChangeLogs.filter(({ deprecation }) => deprecation);
+  }
 
-  @filterBy('flattenedChangeLogs', 'feature')
-  features;
+  get features() {
+    return this.flattenedChangeLogs.filter(({ feature }) => feature);
+  }
 }
