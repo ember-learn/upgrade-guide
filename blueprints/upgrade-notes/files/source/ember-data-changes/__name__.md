@@ -1,5 +1,5 @@
 ---
-version: '<%= dasherizedModuleName %>'
+version: "<%= dasherizedModuleName %>"
 changes:
   -
     deprecation: true
