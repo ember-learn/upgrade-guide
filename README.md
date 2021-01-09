@@ -72,9 +72,8 @@ export const VERSIONS = Object.freeze([
 Next, we use custom blueprints to create Markdown files that can list features and deprecations for Ember.js, Ember Data, and Ember CLI.
 
 ```bash
-ember generate upgrade-ember-model 3.20
-ember generate upgrade-data-model 3.20
-ember generate upgrade-cli-model 3.20
+# Creates 3 Markdown files in the `source` directory
+ember generate upgrade-notes 3.20
 ```
 
 Each Markdown file, by default, lists 1 deprecation and 1 feature:
