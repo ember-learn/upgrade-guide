@@ -100,7 +100,7 @@ For example, Ember CLI v3.20 has 2 deprecations and 1 feature. The Markdown file
 
 ```markdown
 ---
-version: '3.20'
+version: "3.20"
 changes:
   -
     deprecation: true
@@ -121,13 +121,11 @@ changes:
 
 ### Where to find lists of features and deprecations
 
-Please check the release notes and `CHANGELOG`.
+For consistency, we recommend relying on [Ember Blog - Releases](https://blog.emberjs.com/tag/releases/). If you want to learn more about a feature or deprecation, you can check the release notes and `CHANGELOG` in each project:
 
 - [Ember.js](https://github.com/emberjs/ember.js)
 - [Ember Data](https://github.com/emberjs/data)
 - [Ember CLI](https://github.com/ember-cli/ember-cli)
-
-You can also check [Ember Blog - Releases](https://blog.emberjs.com/tags/releases.html).
 
 
 ## Contributing
@@ -140,12 +138,3 @@ Have a look at open [issues](https://github.com/ember-learn/upgrade-guide/issues
 - Jenny Judova
 - Kenneth Larsen 
 - Robert Jackson 
-
-
-## Further Reading / Useful Links
-
-* [ember.js](https://emberjs.com/)
-* [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
