@@ -15,8 +15,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       newFeaturesInEmberJS.length,
-      9,
-      'We see 9 new features that occurred in Ember.js since version 3.15'
+      11,
+      'We see 11 new features that occurred in Ember.js since version 3.15'
     );
 
     // Check deprecations in Ember.js
