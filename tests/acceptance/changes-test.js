@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { click, currentURL, findAll, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
+import { a11yAudit } from 'ember-a11y-testing/test-support';
 
 module('Acceptance | changes', function (hooks) {
   setupApplicationTest(hooks);
@@ -150,5 +151,12 @@ module('Acceptance | changes', function (hooks) {
     await click('[data-test-link="Return to Homepage"]');
 
     assert.strictEqual(currentURL(), '/', 'We see the correct URL.');
+  });
+
+  test('Accessibility audit', async function (assert) {
+    await visit('/changes');
+    await a11yAudit();
+
+    assert.ok(true);
   });
 });
