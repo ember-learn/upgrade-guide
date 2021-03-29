@@ -31,6 +31,7 @@
     "broccoli-merge-trees": "^4.2.0",
     "broccoli-static-site-json": "^4.2.1",
     "compare-versions": "^3.6.0",
+    "ember-a11y-testing": "^4.0.2",
     "ember-auto-import": "^1.10.1",
     "ember-cli": "~3.24.0",
     "ember-cli-app-version": "^4.0.0",
