@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { click, currentURL, fillIn, findAll, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import setupFeatureAndDeprecationAssertions from 'upgrade-guide/tests/helpers/features-deprecations';
+import { a11yAudit } from 'ember-a11y-testing/test-support';
 
 module('Acceptance | index', function (hooks) {
   setupApplicationTest(hooks);
@@ -200,5 +201,12 @@ module('Acceptance | index', function (hooks) {
       0,
       'We see that 0 deprecations were added to Ember.js between 3.3 and 2.17.'
     );
+  });
+
+  test('Accessibility audit', async function (assert) {
+    await visit('/');
+    await a11yAudit();
+
+    assert.ok(true);
   });
 });
