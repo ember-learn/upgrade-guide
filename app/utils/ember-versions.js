@@ -79,4 +79,5 @@ export const VERSIONS = Object.freeze([
   '3.23',
   '3.24',
   '3.25',
+  '3.26',
 ]);
