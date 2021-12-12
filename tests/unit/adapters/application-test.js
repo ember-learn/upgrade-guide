@@ -7,7 +7,7 @@ module('Unit | Adapter | application', function (hooks) {
   test('it sets the right path on findAll()', function (assert) {
     let adapter = this.owner.lookup('adapter:application');
 
-    assert.equal(
+    assert.strictEqual(
       adapter.urlForFindAll('deprecation'),
       '/api/deprecations/all.json'
     );
