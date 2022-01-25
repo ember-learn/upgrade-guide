@@ -21,14 +21,14 @@ jobs:
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v2
         with:
-          cache: 'yarn'
+          cache: 'npm'
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Lint
-        run: yarn lint
+        run: npm run lint
 
 
   test-app:
@@ -42,11 +42,11 @@ jobs:
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v2
         with:
-          cache: 'yarn'
+          cache: 'npm'
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Test
-        run: yarn test
+        run: npm test
