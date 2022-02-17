@@ -38,8 +38,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       newFeaturesInEmberData.length,
-      3,
-      'We see 3 new feature that occurred in Ember Data since version 3.15'
+      1,
+      'We see 1 new feature that occurred in Ember Data since version 3.15'
     );
 
     // Check deprecations in Ember Data
@@ -49,8 +49,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       deprecationsInEmberData.length,
-      4,
-      'We see 4 deprecations that occurred in Ember Data since version 3.15'
+      2,
+      'We see 2 deprecations that occurred in Ember Data since version 3.15'
     );
 
     // Check new features in Ember CLI
