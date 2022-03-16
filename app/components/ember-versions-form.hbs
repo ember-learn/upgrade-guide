@@ -9,6 +9,7 @@
       data-test-select="From Version"
       id="from-version"
       {{on "input" this.updateFromVersion}}
+      {{on "input" this.checkAreVersionsValid}}
     >
       {{#each this.versions as |version|}}
         <option
@@ -28,6 +29,7 @@
       data-test-select="To Version"
       id="to-version"
       {{on "input" this.updateToVersion}}
+      {{on "input" this.checkAreVersionsValid}}
     >
       {{#each this.versions as |version|}}
         <option
@@ -40,7 +42,11 @@
     </select>
   </div>
 
-  <button type="submit" class="btn mt-2" data-test-button="Find Changes">
+  <button type="submit" class="btn mt-2" data-test-button="Find Changes" disabled={{this.isValid}}>
     Find Changes
   </button>
+
+  {{#if this.isValid}}
+    <p class="text-brand mt-2">To version should be bigger than From version</p>
+  {{/if}}
 </form>

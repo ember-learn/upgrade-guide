@@ -7,6 +7,7 @@ export default class EmberVersionsFormComponent extends Component {
   versions = VERSIONS;
   @tracked fromVersion = '3.15';
   @tracked toVersion = VERSIONS[VERSIONS.length - 1];
+  @tracked isValid = false;
 
   @action submitForm(event) {
     event.preventDefault();
@@ -19,6 +20,12 @@ export default class EmberVersionsFormComponent extends Component {
         toVersion: this.toVersion,
       });
     }
+  }
+
+  @action checkAreVersionsValid() {
+    this.isValid = !(
+      VERSIONS.indexOf(this.fromVersion) < VERSIONS.indexOf(this.toVersion)
+    );
   }
 
   @action updateFromVersion(event) {
