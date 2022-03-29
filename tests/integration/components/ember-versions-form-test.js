@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { fillIn, render } from '@ember/test-helpers';
+import { fillIn, render, find } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | ember-versions-form', function (hooks) {
@@ -56,5 +56,23 @@ module('Integration | Component | ember-versions-form', function (hooks) {
     assert
       .dom('[data-test-select="To Version"]')
       .hasValue('3.18', 'The select option shows the new value.');
+  });
+
+  test('Submit button should be disabled when selected fromVersion is greater than toVersion', async function (assert) {
+    assert.expect(2);
+
+    await render(hbs`
+    <EmberVersionsForm
+      @onSubmit={{this.onSubmit}}
+    />
+  `);
+    let button = /**@type {HTMLButtonElement} */ (
+      find('button[type="submit"]')
+    );
+
+    assert.false(button.disabled);
+    await fillIn('[data-test-select="From Version"]', '3.15');
+    await fillIn('[data-test-select="To Version"]', '3.10');
+    assert.true(button.disabled);
   });
 });
