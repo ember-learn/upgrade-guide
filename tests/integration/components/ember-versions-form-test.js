@@ -58,21 +58,73 @@ module('Integration | Component | ember-versions-form', function (hooks) {
       .hasValue('3.18', 'The select option shows the new value.');
   });
 
-  test('Submit button should be disabled when selected fromVersion is greater than toVersion', async function (assert) {
-    assert.expect(2);
+  test('Submit button should be enabled initially', async function (assert) {
+    assert.expect(1);
 
     await render(hbs`
     <EmberVersionsForm
       @onSubmit={{this.onSubmit}}
     />
   `);
+
     let button = /**@type {HTMLButtonElement} */ (
       find('button[type="submit"]')
     );
 
     assert.false(button.disabled);
+  });
+
+  test('Submit button should be enabled when selected fromVersion is less than toVersion', async function (assert) {
+    assert.expect(1);
+
+    await render(hbs`
+    <EmberVersionsForm
+      @onSubmit={{this.onSubmit}}
+    />
+  `);
+
+    let button = /**@type {HTMLButtonElement} */ (
+      find('button[type="submit"]')
+    );
+
+    await fillIn('[data-test-select="From Version"]', '3.15');
+    await fillIn('[data-test-select="To Version"]', '4.0');
+    assert.false(button.disabled);
+  });
+
+  test('Submit button should be disabled when selected fromVersion is greater than toVersion', async function (assert) {
+    assert.expect(1);
+
+    await render(hbs`
+    <EmberVersionsForm
+      @onSubmit={{this.onSubmit}}
+    />
+  `);
+
+    let button = /**@type {HTMLButtonElement} */ (
+      find('button[type="submit"]')
+    );
+
     await fillIn('[data-test-select="From Version"]', '3.15');
     await fillIn('[data-test-select="To Version"]', '3.10');
+    assert.true(button.disabled);
+  });
+
+  test('Submit button should be disabled when selected fromVersion is equal to toVersion', async function (assert) {
+    assert.expect(1);
+
+    await render(hbs`
+    <EmberVersionsForm
+      @onSubmit={{this.onSubmit}}
+    />
+  `);
+
+    let button = /**@type {HTMLButtonElement} */ (
+      find('button[type="submit"]')
+    );
+
+    await fillIn('[data-test-select="From Version"]', '3.15');
+    await fillIn('[data-test-select="To Version"]', '3.15');
     assert.true(button.disabled);
   });
 });
