@@ -22,16 +22,18 @@ export default class EmberVersionsFormComponent extends Component {
     }
   }
 
-  @action checkAreVersionsValid() {
+  checkAreVersionsValid() {
     this.isValid =
       VERSIONS.indexOf(this.fromVersion) < VERSIONS.indexOf(this.toVersion);
   }
 
   @action updateFromVersion(event) {
     this.fromVersion = event.target.value;
+    this.checkAreVersionsValid();
   }
 
   @action updateToVersion(event) {
     this.toVersion = event.target.value;
+    this.checkAreVersionsValid();
   }
 }

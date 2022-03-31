@@ -9,7 +9,6 @@
       data-test-select="From Version"
       id="from-version"
       {{on "input" this.updateFromVersion}}
-      {{on "input" this.checkAreVersionsValid}}
     >
       {{#each this.versions as |version|}}
         <option
@@ -29,7 +28,6 @@
       data-test-select="To Version"
       id="to-version"
       {{on "input" this.updateToVersion}}
-      {{on "input" this.checkAreVersionsValid}}
     >
       {{#each this.versions as |version|}}
         <option
