@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { VERSIONS } from 'upgrade-guide/utils/ember-versions';
+import { compare } from 'compare-versions';
 
 export default class EmberVersionsFormComponent extends Component {
   versions = VERSIONS;
@@ -19,6 +20,16 @@ export default class EmberVersionsFormComponent extends Component {
         toVersion: this.toVersion,
       });
     }
+  }
+
+  get areVersionsValid() {
+    const { fromVersion, toVersion } = this;
+
+    if (!fromVersion || !toVersion) {
+      return true;
+    }
+
+    return compare(fromVersion, toVersion, '<');
   }
 
   @action updateFromVersion(event) {

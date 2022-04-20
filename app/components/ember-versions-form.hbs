@@ -40,7 +40,13 @@
     </select>
   </div>
 
-  <button type="submit" class="btn mt-2" data-test-button="Find Changes">
+  <button type="submit" class="btn mt-2" data-test-button="Find Changes" disabled={{unless this.areVersionsValid true}}>
     Find Changes
   </button>
+
+<div role="alert">
+  {{#unless this.areVersionsValid}}
+    <p class="mt-2">To version should be higher than From version</p>
+  {{/unless}}
+</div>
 </form>

@@ -146,9 +146,9 @@ module('Acceptance | changes', function (hooks) {
     );
   });
 
-  test('When we click the Return to Homepage button, we are redirected to the index route', async function (assert) {
+  test('When we click the Choose different versions button, we are redirected to the index route', async function (assert) {
     await visit('/changes');
-    await click('[data-test-link="Return to Homepage"]');
+    await click('[data-test-link="Choose different versions"]');
 
     assert.strictEqual(currentURL(), '/', 'We see the correct URL.');
   });
