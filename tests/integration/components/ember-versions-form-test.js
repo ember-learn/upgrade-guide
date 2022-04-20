@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { fillIn, render, find } from '@ember/test-helpers';
+import { fillIn, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | ember-versions-form', function (hooks) {
@@ -67,11 +67,7 @@ module('Integration | Component | ember-versions-form', function (hooks) {
     />
   `);
 
-    let button = /**@type {HTMLButtonElement} */ (
-      find('button[type="submit"]')
-    );
-
-    assert.false(button.disabled);
+    assert.dom('[data-test-button="Find Changes"]').isEnabled();
   });
 
   test('Submit button should be enabled when selected fromVersion is less than toVersion', async function (assert) {
@@ -83,13 +79,9 @@ module('Integration | Component | ember-versions-form', function (hooks) {
     />
   `);
 
-    let button = /**@type {HTMLButtonElement} */ (
-      find('button[type="submit"]')
-    );
-
     await fillIn('[data-test-select="From Version"]', '3.15');
     await fillIn('[data-test-select="To Version"]', '4.0');
-    assert.false(button.disabled);
+    assert.dom('[data-test-button="Find Changes"]').isEnabled();
   });
 
   test('Submit button should be disabled when selected fromVersion is greater than toVersion', async function (assert) {
@@ -101,13 +93,9 @@ module('Integration | Component | ember-versions-form', function (hooks) {
     />
   `);
 
-    let button = /**@type {HTMLButtonElement} */ (
-      find('button[type="submit"]')
-    );
-
     await fillIn('[data-test-select="From Version"]', '3.15');
     await fillIn('[data-test-select="To Version"]', '3.10');
-    assert.true(button.disabled);
+    assert.dom('[data-test-button="Find Changes"]').isDisabled();
   });
 
   test('Submit button should be disabled when selected fromVersion is equal to toVersion', async function (assert) {
@@ -119,12 +107,8 @@ module('Integration | Component | ember-versions-form', function (hooks) {
     />
   `);
 
-    let button = /**@type {HTMLButtonElement} */ (
-      find('button[type="submit"]')
-    );
-
     await fillIn('[data-test-select="From Version"]', '3.15');
     await fillIn('[data-test-select="To Version"]', '3.15');
-    assert.true(button.disabled);
+    assert.dom('[data-test-button="Find Changes"]').isDisabled();
   });
 });

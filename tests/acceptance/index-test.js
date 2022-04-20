@@ -175,12 +175,12 @@ module('Acceptance | index', function (hooks) {
     });
   });
 
-  test('When we submit the form with fromVersion greater than toVersion, we see 0 features and 0 deprecations', async function (assert) {
+  test('When we submit the form with fromVersion greater than toVersion, Find changes button should be disabled', async function (assert) {
     await visit('/');
     await fillIn('[data-test-select="To Version"]', '2.17');
     await fillIn('[data-test-select="From Version"]', '3.3');
 
-    await click('[data-test-button="Find Changes"]');
+    assert.dom('[data-test-button="Find Changes"]').isDisabled();
 
     // Check Ember.js
     let features = findAll(
