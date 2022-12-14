@@ -21,7 +21,7 @@
     </select>
   </div>
 
-  <div>
+  <div class='to-version'>
     <label for="to-version">To version</label>
 
     <select
@@ -40,9 +40,12 @@
     </select>
   </div>
 
-  <button type="submit" class="btn mt-2" data-test-button="Find Changes" disabled={{unless this.areVersionsValid true}}>
-    Find Changes
-  </button>
+  <EsButton
+    type='submit'
+    data-test-button='Find Changes'
+    disabled={{unless this.areVersionsValid true}}
+    @label='Find Changes'
+  />
 
 <div role="alert">
   {{#unless this.areVersionsValid}}
