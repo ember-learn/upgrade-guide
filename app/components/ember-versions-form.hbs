@@ -21,7 +21,7 @@
     </select>
   </div>
 
-  <div class='to-version'>
+  <div>
     <label for="to-version">To version</label>
 
     <select
@@ -45,6 +45,7 @@
     data-test-button='Find Changes'
     disabled={{unless this.areVersionsValid true}}
     @label='Find Changes'
+    class="mt-2"
   />
 
 <div role="alert">
