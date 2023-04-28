@@ -94,4 +94,5 @@ export const VERSIONS = Object.freeze([
   '4.9',
   '4.10',
   '4.11',
+  '4.12',
 ]);
