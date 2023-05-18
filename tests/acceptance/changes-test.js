@@ -16,8 +16,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       newFeaturesInEmberJS.length,
-      16,
-      'We see 16 new features that occurred in Ember.js since version 3.15'
+      37,
+      'We see 37 new features that occurred in Ember.js since version 3.15'
     );
 
     // Check deprecations in Ember.js
@@ -27,8 +27,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       deprecationsInEmberJS.length,
-      26,
-      'We see 26 deprecations that occurred in Ember.js since version 3.15'
+      29,
+      'We see 29 deprecations that occurred in Ember.js since version 3.15'
     );
 
     // Check new features in Ember Data
@@ -38,8 +38,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       newFeaturesInEmberData.length,
-      1,
-      'We see 1 new feature that occurred in Ember Data since version 3.15'
+      11,
+      'We see 11 new feature that occurred in Ember Data since version 3.15'
     );
 
     // Check deprecations in Ember Data
@@ -49,8 +49,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       deprecationsInEmberData.length,
-      2,
-      'We see 2 deprecations that occurred in Ember Data since version 3.15'
+      14,
+      'We see 14 deprecations that occurred in Ember Data since version 3.15'
     );
 
     // Check new features in Ember CLI
@@ -60,8 +60,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       newFeaturesInEmberCLI.length,
-      30,
-      'We see 30 new features that occurred in Ember CLI since version 3.15'
+      56,
+      'We see 56 new features that occurred in Ember CLI since version 3.15'
     );
 
     // Check deprecations in Ember CLI
@@ -71,8 +71,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       deprecationsInEmberCLI.length,
-      2,
-      'We see 2 deprecations that occurred in Ember CLI since version 3.15'
+      8,
+      'We see 8 deprecations that occurred in Ember CLI since version 3.15'
     );
   });
 
