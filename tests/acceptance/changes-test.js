@@ -16,7 +16,7 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       newFeaturesInEmberJS.length,
-      40,
+      39,
       'We see 40 new features that occurred in Ember.js since version 3.15'
     );
 
