@@ -40,9 +40,13 @@
     </select>
   </div>
 
-  <button type="submit" class="btn mt-2" data-test-button="Find Changes" disabled={{unless this.areVersionsValid true}}>
-    Find Changes
-  </button>
+  <EsButton
+    type='submit'
+    data-test-button='Find Changes'
+    disabled={{unless this.areVersionsValid true}}
+    @label='Find Changes'
+    class="mt-2"
+  />
 
 <div role="alert">
   {{#unless this.areVersionsValid}}
