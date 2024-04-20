@@ -60,8 +60,8 @@ module('Acceptance | changes', function (hooks) {
 
     assert.strictEqual(
       newFeaturesInEmberCLI.length,
-      70,
-      'We see 70 new features that occurred in Ember CLI since version 3.15'
+      71,
+      'We see 71 new features that occurred in Ember CLI since version 3.15'
     );
 
     // Check deprecations in Ember CLI
