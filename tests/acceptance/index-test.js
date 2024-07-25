@@ -35,7 +35,7 @@ module('Acceptance | index', function (hooks) {
     assert.strictEqual(
       currentURL(),
       '/changes?fromVersion=2.17&toVersion=3.3',
-      'We see the correct URL.'
+      'We see the correct URL.',
     );
   });
 
@@ -48,16 +48,16 @@ module('Acceptance | index', function (hooks) {
 
     // Check Ember.js
     let features = findAll(
-      '[data-test-package="Ember.js"] [data-test-feature]'
+      '[data-test-package="Ember.js"] [data-test-feature]',
     );
     let deprecations = findAll(
-      '[data-test-package="Ember.js"] [data-test-deprecation]'
+      '[data-test-package="Ember.js"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       features.length,
       8,
-      'We see that 8 features were added to Ember.js between 2.17 and 3.3.'
+      'We see that 8 features were added to Ember.js between 2.17 and 3.3.',
     );
 
     assert.isFeatureCorrect(features[0], {
@@ -75,7 +75,7 @@ module('Acceptance | index', function (hooks) {
     assert.strictEqual(
       deprecations.length,
       9,
-      'We see that 9 deprecations were added to Ember.js between 2.17 and 3.3.'
+      'We see that 9 deprecations were added to Ember.js between 2.17 and 3.3.',
     );
 
     assert.isDeprecationCorrect(deprecations[0], {
@@ -93,13 +93,13 @@ module('Acceptance | index', function (hooks) {
     // Check Ember Data
     features = findAll('[data-test-package="Ember Data"] [data-test-feature]');
     deprecations = findAll(
-      '[data-test-package="Ember Data"] [data-test-deprecation]'
+      '[data-test-package="Ember Data"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       features.length,
       5,
-      'We see that 5 features were added to Ember Data between 2.17 and 3.3.'
+      'We see that 5 features were added to Ember Data between 2.17 and 3.3.',
     );
 
     assert.isFeatureCorrect(features[0], {
@@ -117,7 +117,7 @@ module('Acceptance | index', function (hooks) {
     assert.strictEqual(
       deprecations.length,
       1,
-      'We see that 1 deprecation was added to Ember Data between 2.17 and 3.3.'
+      'We see that 1 deprecation was added to Ember Data between 2.17 and 3.3.',
     );
 
     assert.isDeprecationCorrect(deprecations[0], {
@@ -135,13 +135,13 @@ module('Acceptance | index', function (hooks) {
     // Check Ember CLI
     features = findAll('[data-test-package="Ember CLI"] [data-test-feature]');
     deprecations = findAll(
-      '[data-test-package="Ember CLI"] [data-test-deprecation]'
+      '[data-test-package="Ember CLI"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       features.length,
       2,
-      'We see that 2 features were added to Ember CLI between 2.17 and 3.3.'
+      'We see that 2 features were added to Ember CLI between 2.17 and 3.3.',
     );
 
     assert.isFeatureCorrect(features[0], {
@@ -159,7 +159,7 @@ module('Acceptance | index', function (hooks) {
     assert.strictEqual(
       deprecations.length,
       1,
-      'We see that 1 deprecation was added to Ember CLI between 2.17 and 3.3.'
+      'We see that 1 deprecation was added to Ember CLI between 2.17 and 3.3.',
     );
 
     assert.isDeprecationCorrect(deprecations[0], {
@@ -184,22 +184,22 @@ module('Acceptance | index', function (hooks) {
 
     // Check Ember.js
     let features = findAll(
-      '[data-test-package="Ember.js"] [data-test-feature]'
+      '[data-test-package="Ember.js"] [data-test-feature]',
     );
     let deprecations = findAll(
-      '[data-test-package="Ember.js"] [data-test-deprecation]'
+      '[data-test-package="Ember.js"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       features.length,
       0,
-      'We see that 0 features were added to Ember.js between 3.3 and 2.17.'
+      'We see that 0 features were added to Ember.js between 3.3 and 2.17.',
     );
 
     assert.strictEqual(
       deprecations.length,
       0,
-      'We see that 0 deprecations were added to Ember.js between 3.3 and 2.17.'
+      'We see that 0 deprecations were added to Ember.js between 3.3 and 2.17.',
     );
   });
 

@@ -39,7 +39,7 @@ module('Unit | Model | private/common', function (hooks) {
           link: 'https://blog.emberjs.com/2020/07/29/ember-3-20-released.html',
         },
       ],
-      'We get the correct value.'
+      'We get the correct value.',
     );
   });
 
@@ -79,7 +79,7 @@ module('Unit | Model | private/common', function (hooks) {
           link: 'https://blog.emberjs.com/2020/07/29/ember-3-20-released.html',
         },
       ],
-      'We get the correct value.'
+      'We get the correct value.',
     );
   });
 });

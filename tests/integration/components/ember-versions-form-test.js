@@ -23,19 +23,17 @@ module('Integration | Component | ember-versions-form', function (hooks) {
   });
 
   test('selecting and changing fromVersion and toVersion', async function (assert) {
-    assert.expect(2);
-
     this.onSubmit = ({ fromVersion, toVersion }) => {
       assert.strictEqual(
         fromVersion,
         '3.15',
-        'We get the correct value for fromVersion.'
+        'We get the correct value for fromVersion.',
       );
 
       assert.strictEqual(
         toVersion,
         '3.18',
-        'We get the correct value for toVersion.'
+        'We get the correct value for toVersion.',
       );
     };
 
@@ -59,8 +57,6 @@ module('Integration | Component | ember-versions-form', function (hooks) {
   });
 
   test('Submit button should be enabled initially', async function (assert) {
-    assert.expect(1);
-
     await render(hbs`
     <EmberVersionsForm
       @onSubmit={{this.onSubmit}}
@@ -71,8 +67,6 @@ module('Integration | Component | ember-versions-form', function (hooks) {
   });
 
   test('Submit button should be enabled when selected fromVersion is less than toVersion', async function (assert) {
-    assert.expect(1);
-
     await render(hbs`
     <EmberVersionsForm
       @onSubmit={{this.onSubmit}}
@@ -85,8 +79,6 @@ module('Integration | Component | ember-versions-form', function (hooks) {
   });
 
   test('Submit button should be disabled when selected fromVersion is greater than toVersion', async function (assert) {
-    assert.expect(1);
-
     await render(hbs`
     <EmberVersionsForm
       @onSubmit={{this.onSubmit}}
@@ -99,8 +91,6 @@ module('Integration | Component | ember-versions-form', function (hooks) {
   });
 
   test('Submit button should be disabled when selected fromVersion is equal to toVersion', async function (assert) {
-    assert.expect(1);
-
     await render(hbs`
     <EmberVersionsForm
       @onSubmit={{this.onSubmit}}

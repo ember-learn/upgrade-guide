@@ -19,14 +19,14 @@ module('Integration | Component | cli-update-commands', function (hooks) {
       .dom('[data-test-command="Ember CLI Update"]')
       .hasText(
         'ember-cli-update --to 3.14',
-        'We see the correct command for running ember-cli-update.'
+        'We see the correct command for running ember-cli-update.',
       );
 
     assert
       .dom('[data-test-command="Run Codemods"]')
       .hasText(
         'ember-cli-update --run-codemods',
-        'We see the correct command for running codemods.'
+        'We see the correct command for running codemods.',
       );
   });
 });

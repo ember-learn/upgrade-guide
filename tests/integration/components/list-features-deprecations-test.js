@@ -88,35 +88,35 @@ module(
       assert.strictEqual(
         features.length,
         4,
-        `We see that 4 features were added between versions ${this.fromVersion} and ${this.toVersion}.`
+        `We see that 4 features were added between versions ${this.fromVersion} and ${this.toVersion}.`,
       );
 
       assert
         .dom(features[0])
         .hasText(
           'Feature #1 (2.18)',
-          'We see the correct title for the 1st feature.'
+          'We see the correct title for the 1st feature.',
         );
 
       assert
         .dom(features[1])
         .hasText(
           'Feature #1 (3.1)',
-          'We see the correct title for the 2nd feature.'
+          'We see the correct title for the 2nd feature.',
         );
 
       assert
         .dom(features[2])
         .hasText(
           'Feature #2 (3.1)',
-          'We see the correct title for the 3rd feature.'
+          'We see the correct title for the 3rd feature.',
         );
 
       assert
         .dom(features[3])
         .hasText(
           'Feature #1 (3.2)',
-          'We see the correct title for the 4th feature.'
+          'We see the correct title for the 4th feature.',
         );
 
       // Check deprecations
@@ -125,35 +125,35 @@ module(
       assert.strictEqual(
         deprecations.length,
         4,
-        `We see that 4 deprecations were added between versions ${this.fromVersion} and ${this.toVersion}.`
+        `We see that 4 deprecations were added between versions ${this.fromVersion} and ${this.toVersion}.`,
       );
 
       assert
         .dom(deprecations[0])
         .hasText(
           'Deprecation #1 (2.18)',
-          'We see the correct title for the 1st deprecation.'
+          'We see the correct title for the 1st deprecation.',
         );
 
       assert
         .dom(deprecations[1])
         .hasText(
           'Deprecation #2 (2.18)',
-          'We see the correct title for the 2nd deprecation.'
+          'We see the correct title for the 2nd deprecation.',
         );
 
       assert
         .dom(deprecations[2])
         .hasText(
           'Deprecation #1 (3.1)',
-          'We see the correct title for the 3rd deprecation.'
+          'We see the correct title for the 3rd deprecation.',
         );
 
       assert
         .dom(deprecations[3])
         .hasText(
           'Deprecation #1 (3.3)',
-          'We see the correct title for the 4th deprecation.'
+          'We see the correct title for the 4th deprecation.',
         );
     });
 
@@ -176,14 +176,14 @@ module(
       assert.strictEqual(
         features.length,
         1,
-        `We see that 1 feature was added between versions ${this.fromVersion} and ${this.toVersion}.`
+        `We see that 1 feature was added between versions ${this.fromVersion} and ${this.toVersion}.`,
       );
 
       assert
         .dom(features[0])
         .hasText(
           'Feature #1 (3.2)',
-          'We see the correct title for the 1st feature.'
+          'We see the correct title for the 1st feature.',
         );
 
       // Check deprecations
@@ -192,14 +192,14 @@ module(
       assert.strictEqual(
         deprecations.length,
         1,
-        `We see that 1 deprecation was added between versions ${this.fromVersion} and ${this.toVersion}.`
+        `We see that 1 deprecation was added between versions ${this.fromVersion} and ${this.toVersion}.`,
       );
 
       assert
         .dom(deprecations[0])
         .hasText(
           'Deprecation #1 (3.3)',
-          'We see the correct title for the 1st deprecation.'
+          'We see the correct title for the 1st deprecation.',
         );
     });
 
@@ -222,28 +222,28 @@ module(
       assert.strictEqual(
         features.length,
         3,
-        `We see that 3 features were added between versions ${this.fromVersion} and ${this.toVersion}.`
+        `We see that 3 features were added between versions ${this.fromVersion} and ${this.toVersion}.`,
       );
 
       assert
         .dom(features[0])
         .hasText(
           'Feature #1 (2.18)',
-          'We see the correct title for the 1st feature.'
+          'We see the correct title for the 1st feature.',
         );
 
       assert
         .dom(features[1])
         .hasText(
           'Feature #1 (3.1)',
-          'We see the correct title for the 2nd feature.'
+          'We see the correct title for the 2nd feature.',
         );
 
       assert
         .dom(features[2])
         .hasText(
           'Feature #2 (3.1)',
-          'We see the correct title for the 3rd feature.'
+          'We see the correct title for the 3rd feature.',
         );
 
       // Check deprecations
@@ -252,28 +252,28 @@ module(
       assert.strictEqual(
         deprecations.length,
         3,
-        `We see that 3 deprecations were added between versions ${this.fromVersion} and ${this.toVersion}.`
+        `We see that 3 deprecations were added between versions ${this.fromVersion} and ${this.toVersion}.`,
       );
 
       assert
         .dom(deprecations[0])
         .hasText(
           'Deprecation #1 (2.18)',
-          'We see the correct title for the 1st deprecation.'
+          'We see the correct title for the 1st deprecation.',
         );
 
       assert
         .dom(deprecations[1])
         .hasText(
           'Deprecation #2 (2.18)',
-          'We see the correct title for the 2nd deprecation.'
+          'We see the correct title for the 2nd deprecation.',
         );
 
       assert
         .dom(deprecations[2])
         .hasText(
           'Deprecation #1 (3.1)',
-          'We see the correct title for the 3rd deprecation.'
+          'We see the correct title for the 3rd deprecation.',
         );
     });
 
@@ -296,7 +296,7 @@ module(
       assert.strictEqual(
         features.length,
         0,
-        `We see that 0 features were added between versions ${this.fromVersion} and ${this.toVersion}.`
+        `We see that 0 features were added between versions ${this.fromVersion} and ${this.toVersion}.`,
       );
 
       // Check deprecations
@@ -305,8 +305,8 @@ module(
       assert.strictEqual(
         deprecations.length,
         0,
-        `We see that 0 deprecations were added between versions ${this.fromVersion} and ${this.toVersion}.`
+        `We see that 0 deprecations were added between versions ${this.fromVersion} and ${this.toVersion}.`,
       );
     });
-  }
+  },
 );
