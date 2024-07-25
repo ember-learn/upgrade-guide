@@ -9,7 +9,7 @@ module('Unit | Adapter | application', function (hooks) {
 
     assert.strictEqual(
       adapter.urlForFindAll('deprecation'),
-      '/api/deprecations/all.json'
+      '/api/deprecations/all.json',
     );
   });
 });

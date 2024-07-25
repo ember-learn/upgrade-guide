@@ -16,11 +16,11 @@ function setupCustomAssertions(assert) {
       .hasAttribute(
         'href',
         link,
-        'We see the correct URL for the feature version.'
+        'We see the correct URL for the feature version.',
       )
       .hasText(
         `(${version})`,
-        'We see the correct text for the feature version.'
+        'We see the correct text for the feature version.',
       );
   };
 
@@ -36,11 +36,11 @@ function setupCustomAssertions(assert) {
       .hasAttribute(
         'href',
         link,
-        'We see the correct URL for the deprecation version.'
+        'We see the correct URL for the deprecation version.',
       )
       .hasText(
         `(${version})`,
-        'We see the correct text for the deprecation version.'
+        'We see the correct text for the deprecation version.',
       );
   };
 }

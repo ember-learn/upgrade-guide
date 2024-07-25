@@ -11,68 +11,68 @@ module('Acceptance | changes', function (hooks) {
 
     // Check new features in Ember.js
     const newFeaturesInEmberJS = findAll(
-      '[data-test-package="Ember.js"] [data-test-feature]'
+      '[data-test-package="Ember.js"] [data-test-feature]',
     );
 
     assert.strictEqual(
       newFeaturesInEmberJS.length,
       43,
-      'We see 43 new features that occurred in Ember.js since version 3.15'
+      'We see 43 new features that occurred in Ember.js since version 3.15',
     );
 
     // Check deprecations in Ember.js
     const deprecationsInEmberJS = findAll(
-      '[data-test-package="Ember.js"] [data-test-deprecation]'
+      '[data-test-package="Ember.js"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       deprecationsInEmberJS.length,
       33,
-      'We see 33 deprecations that occurred in Ember.js since version 3.15'
+      'We see 33 deprecations that occurred in Ember.js since version 3.15',
     );
 
     // Check new features in Ember Data
     const newFeaturesInEmberData = findAll(
-      '[data-test-package="Ember Data"] [data-test-feature]'
+      '[data-test-package="Ember Data"] [data-test-feature]',
     );
 
     assert.strictEqual(
       newFeaturesInEmberData.length,
       21,
-      'We see 21 new feature that occurred in Ember Data since version 3.15'
+      'We see 21 new feature that occurred in Ember Data since version 3.15',
     );
 
     // Check deprecations in Ember Data
     const deprecationsInEmberData = findAll(
-      '[data-test-package="Ember Data"] [data-test-deprecation]'
+      '[data-test-package="Ember Data"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       deprecationsInEmberData.length,
       18,
-      'We see 18 deprecations that occurred in Ember Data since version 3.15'
+      'We see 18 deprecations that occurred in Ember Data since version 3.15',
     );
 
     // Check new features in Ember CLI
     const newFeaturesInEmberCLI = findAll(
-      '[data-test-package="Ember CLI"] [data-test-feature]'
+      '[data-test-package="Ember CLI"] [data-test-feature]',
     );
 
     assert.strictEqual(
       newFeaturesInEmberCLI.length,
       74,
-      'We see 74 new features that occurred in Ember CLI since version 3.15'
+      'We see 74 new features that occurred in Ember CLI since version 3.15',
     );
 
     // Check deprecations in Ember CLI
     const deprecationsInEmberCLI = findAll(
-      '[data-test-package="Ember CLI"] [data-test-deprecation]'
+      '[data-test-package="Ember CLI"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       deprecationsInEmberCLI.length,
       10,
-      'We see 10 deprecations that occurred in Ember CLI since version 3.15'
+      'We see 10 deprecations that occurred in Ember CLI since version 3.15',
     );
   });
 
@@ -81,68 +81,68 @@ module('Acceptance | changes', function (hooks) {
 
     // Check new features in Ember.js
     const newFeaturesInEmberJS = findAll(
-      '[data-test-package="Ember.js"] [data-test-feature]'
+      '[data-test-package="Ember.js"] [data-test-feature]',
     );
 
     assert.strictEqual(
       newFeaturesInEmberJS.length,
       8,
-      'We see 8 new features that occurred in Ember.js between 2.17 and 3.3'
+      'We see 8 new features that occurred in Ember.js between 2.17 and 3.3',
     );
 
     // Check deprecations in Ember.js
     const deprecationsInEmberJS = findAll(
-      '[data-test-package="Ember.js"] [data-test-deprecation]'
+      '[data-test-package="Ember.js"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       deprecationsInEmberJS.length,
       9,
-      'We see 9 deprecations that occurred in Ember.js between 2.17 and 3.3'
+      'We see 9 deprecations that occurred in Ember.js between 2.17 and 3.3',
     );
 
     // Check new features in Ember Data
     const newFeaturesInEmberData = findAll(
-      '[data-test-package="Ember Data"] [data-test-feature]'
+      '[data-test-package="Ember Data"] [data-test-feature]',
     );
 
     assert.strictEqual(
       newFeaturesInEmberData.length,
       5,
-      'We see 5 new features that occurred in Ember Data between 2.17 and 3.3'
+      'We see 5 new features that occurred in Ember Data between 2.17 and 3.3',
     );
 
     // Check deprecations in Ember Data
     const deprecationsInEmberData = findAll(
-      '[data-test-package="Ember Data"] [data-test-deprecation]'
+      '[data-test-package="Ember Data"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       deprecationsInEmberData.length,
       1,
-      'We see 1 deprecation that occurred in Ember Data between 2.17 and 3.3'
+      'We see 1 deprecation that occurred in Ember Data between 2.17 and 3.3',
     );
 
     // Check new features in Ember CLI
     const newFeaturesInEmberCLI = findAll(
-      '[data-test-package="Ember CLI"] [data-test-feature]'
+      '[data-test-package="Ember CLI"] [data-test-feature]',
     );
 
     assert.strictEqual(
       newFeaturesInEmberCLI.length,
       2,
-      'We see 2 new features that occurred in Ember CLI between 2.17 and 3.3'
+      'We see 2 new features that occurred in Ember CLI between 2.17 and 3.3',
     );
 
     // Check deprecations in Ember CLI
     const deprecationsInEmberCLI = findAll(
-      '[data-test-package="Ember CLI"] [data-test-deprecation]'
+      '[data-test-package="Ember CLI"] [data-test-deprecation]',
     );
 
     assert.strictEqual(
       deprecationsInEmberCLI.length,
       1,
-      'We see 1 deprecation that occurred in Ember CLI between 2.17 and 3.3'
+      'We see 1 deprecation that occurred in Ember CLI between 2.17 and 3.3',
     );
   });
 
