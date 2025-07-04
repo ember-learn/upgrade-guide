@@ -111,4 +111,6 @@ export const VERSIONS = Object.freeze([
   '6.1',
   '6.2',
   '6.3',
+  '6.4',
+  '6.5',
 ]);
