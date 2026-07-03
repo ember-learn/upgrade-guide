@@ -1,12 +1,14 @@
 import Application from 'upgrade-guide/app';
 import config from 'upgrade-guide/config/environment';
-import { setApplication } from '@ember/test-helpers';
-import { start } from 'ember-qunit';
 import * as QUnit from 'qunit';
+import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';
+import { start as qunitStart, setupEmberOnerrorValidation } from 'ember-qunit';
 
-setup(QUnit.assert);
+export function start() {
+  setApplication(Application.create(config.APP));
 
-setApplication(Application.create(config.APP));
-
-start();
+  setup(QUnit.assert);
+  setupEmberOnerrorValidation();
+  qunitStart();
+}

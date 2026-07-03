@@ -15,10 +15,7 @@
         <optgroup label={{concat "v" versionGroup.major ".x"}}>
           <legend>{{versionGroup.major}}.x Versions</legend>
           {{#each versionGroup.versions as |version|}}
-            <option
-              selected={{eq version this.fromVersion}}
-              value={{version}}
-            >
+            <option selected={{eq version this.fromVersion}} value={{version}}>
               {{version}}
             </option>
           {{/each}}
@@ -39,10 +36,7 @@
         <optgroup label={{concat "v" versionGroup.major ".x"}}>
           <legend>{{versionGroup.major}}.x Versions</legend>
           {{#each versionGroup.versions as |version|}}
-            <option
-              selected={{eq version this.toVersion}}
-              value={{version}}
-            >
+            <option selected={{eq version this.toVersion}} value={{version}}>
               {{version}}
             </option>
           {{/each}}
@@ -52,16 +46,16 @@
   </div>
 
   <EsButton
-    @type='submit'
-    data-test-button='Find Changes'
+    @type="submit"
+    data-test-button="Find Changes"
     disabled={{unless this.areVersionsValid true}}
-    @label='Find Changes'
+    @label="Find Changes"
     class="mt-2"
   />
 
-<div role="alert">
-  {{#unless this.areVersionsValid}}
-    <p class="mt-2">To version should be higher than From version</p>
-  {{/unless}}
-</div>
+  <div role="alert">
+    {{#unless this.areVersionsValid}}
+      <p class="mt-2">To version should be higher than From version</p>
+    {{/unless}}
+  </div>
 </form>

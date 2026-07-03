@@ -1,8 +1,6 @@
 <section class="container">
   <h1>Upgrading from {{this.fromVersion}} to {{this.toVersion}}</h1>
-  <CliUpdateCommands
-    @toVersion={{this.toVersion}}
-  />
+  <CliUpdateCommands @toVersion={{this.toVersion}} />
 
   <div data-test-package="Ember.js">
     <h2>Ember.js</h2>
@@ -30,20 +28,18 @@
       @toVersion={{this.toVersion}}
     />
   </div>
-  
- <h2>Contribute</h2>
- Improve the upgrade guide and open issues over at the
+
+  <h2>Contribute</h2>
+  Improve the upgrade guide and open issues over at the
   <a
-    href="https://github.com/ember-learn/upgrade-guide#upgrade-guide"  rel="external"
+    href="https://github.com/ember-learn/upgrade-guide#upgrade-guide"
+    rel="external"
   >
     repo
   </a>
   <p></p>
   <p></p>
-  <LinkTo
-    data-test-link="Choose different versions"
-    @route="index"
-  >
+  <LinkTo data-test-link="Choose different versions" @route="index">
     Choose different versions
   </LinkTo>
 </section>

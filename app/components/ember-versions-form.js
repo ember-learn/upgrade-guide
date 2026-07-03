@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { VERSIONS } from 'upgrade-guide/utils/ember-versions';
 import { compare } from 'compare-versions';
+import '../styles/ember-versions-form.css';
 
 // Group the versions by major so we can display option groups.
 const GROUPED_VERSIONS = VERSIONS.reduce((acc, version) => {

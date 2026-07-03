@@ -12,7 +12,6 @@ You will need the following things properly installed on your computer.
 
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/) (with npm)
-- [Ember CLI](https://cli.emberjs.com/release/)
 - [Google Chrome](https://google.com/chrome/)
 
 
@@ -29,10 +28,13 @@ You will need the following things properly installed on your computer.
 - Visit your app at [http://localhost:4200](http://localhost:4200).
 - Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
+### Code Generators
+
+Make use of the many generators for code, try `npm exec ember help generate` for more details
+
 ### Running Tests
 
 - `npm run test`
-- `npm run test:ember -- --server`
 
 ### Linting
 
@@ -41,17 +43,12 @@ You will need the following things properly installed on your computer.
 
 ### Building
 
-- `npm exec ember build` (development)
+- `npm exec vite build --mode development` (development)
 - `npm run build` (production)
 
 ### Deploying
 
 Specify what it takes to deploy your app.
-
-
-## Code Generators
-
-Please use Ember CLI to create files in the `app` folder. You can run `ember help generate` for more detail.
 
 ### Adding the latest Ember version
 
@@ -74,7 +71,7 @@ Next, we use custom blueprints to create Markdown files that can list features a
 
 ```bash
 # Creates 3 Markdown files in the `source` directory
-ember generate upgrade-notes 3.20
+npm exec ember generate upgrade-notes 3.20
 ```
 
 Each Markdown file, by default, lists 1 deprecation and 1 feature:
@@ -123,10 +120,11 @@ changes:
 
 For consistency, we recommend relying on [Ember Blog - Releases](https://blog.emberjs.com/tag/releases/). If you want to learn more about a feature or deprecation, you can check the release notes and `CHANGELOG` in each project:
 
-- [Ember.js](https://github.com/emberjs/ember.js)
-- [Ember Data](https://github.com/emberjs/data)
-- [Ember CLI](https://github.com/ember-cli/ember-cli)
-
+- [ember.js](https://emberjs.com/)
+- [Vite](https://vite.dev)
+- Development Browser Extensions
+  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
 ## Contributing
 
