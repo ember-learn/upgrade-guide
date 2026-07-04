@@ -1,3 +1,49 @@
+import Component from '@glimmer/component';
+import { createCache, getValue } from '@glimmer/tracking/primitives/cache';
+import { compare } from 'compare-versions';
+
+export default class ListFeaturesDeprecationsComponent extends Component {
+  #relevantChangeLogs = createCache(() => {
+    const allChangeLogs = this.args.allChangeLogs ?? [];
+
+    return allChangeLogs.filter((changeLog) => {
+      return (
+        compare(this.args.toVersion, changeLog.version, '>=') &&
+        compare(this.args.fromVersion, changeLog.version, '<')
+      );
+    });
+  });
+
+  get relevantChangeLogs() {
+    return getValue(this.#relevantChangeLogs);
+  }
+
+  #flattenedChangeLogs = createCache(() => {
+    return this.relevantChangeLogs.flatMap((changeLog) => {
+      const changes = changeLog.changes ?? [];
+
+      return changes.map((change) => {
+        return {
+          version: changeLog.version,
+          ...change,
+        };
+      });
+    });
+  });
+
+  get flattenedChangeLogs() {
+    return getValue(this.#flattenedChangeLogs);
+  }
+
+  get deprecations() {
+    return this.flattenedChangeLogs.filter(({ deprecation }) => deprecation);
+  }
+
+  get features() {
+    return this.flattenedChangeLogs.filter(({ feature }) => feature);
+  }
+}
+
 <h3>New features</h3>
 <h4 class="mb-1">Count: {{this.features.length}}</h4>
 
