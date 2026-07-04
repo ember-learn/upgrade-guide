@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { findAll, render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import ListFeaturesDeprecations from 'upgrade-guide/components/list-features-deprecations';
 
 module(
   'Integration | Component | list-features-deprecations',
@@ -74,13 +74,15 @@ module(
       this.fromVersion = '2.17';
       this.toVersion = '3.3';
 
-      await render(hbs`
-      <ListFeaturesDeprecations
-        @allChangeLogs={{this.allChangeLogs}}
-        @fromVersion={{this.fromVersion}}
-        @toVersion={{this.toVersion}}
-      />
-    `);
+      await render(
+        <template>
+          <ListFeaturesDeprecations
+            @allChangeLogs={{this.allChangeLogs}}
+            @fromVersion={{this.fromVersion}}
+            @toVersion={{this.toVersion}}
+          />
+        </template>,
+      );
 
       // Check features
       const features = findAll('[data-test-feature]');
@@ -162,13 +164,15 @@ module(
       this.fromVersion = '3.1';
       this.toVersion = '3.3';
 
-      await render(hbs`
-      <ListFeaturesDeprecations
-        @allChangeLogs={{this.allChangeLogs}}
-        @fromVersion={{this.fromVersion}}
-        @toVersion={{this.toVersion}}
-      />
-    `);
+      await render(
+        <template>
+          <ListFeaturesDeprecations
+            @allChangeLogs={{this.allChangeLogs}}
+            @fromVersion={{this.fromVersion}}
+            @toVersion={{this.toVersion}}
+          />
+        </template>,
+      );
 
       // Check features
       const features = findAll('[data-test-feature]');
@@ -208,13 +212,15 @@ module(
       this.fromVersion = '2.17';
       this.toVersion = '3.1';
 
-      await render(hbs`
-      <ListFeaturesDeprecations
-        @allChangeLogs={{this.allChangeLogs}}
-        @fromVersion={{this.fromVersion}}
-        @toVersion={{this.toVersion}}
-      />
-    `);
+      await render(
+        <template>
+          <ListFeaturesDeprecations
+            @allChangeLogs={{this.allChangeLogs}}
+            @fromVersion={{this.fromVersion}}
+            @toVersion={{this.toVersion}}
+          />
+        </template>,
+      );
 
       // Check features
       const features = findAll('[data-test-feature]');
@@ -282,13 +288,15 @@ module(
       this.fromVersion = '3.3';
       this.toVersion = '3.8';
 
-      await render(hbs`
-      <ListFeaturesDeprecations
-        @allChangeLogs={{this.allChangeLogs}}
-        @fromVersion={{this.fromVersion}}
-        @toVersion={{this.toVersion}}
-      />
-    `);
+      await render(
+        <template>
+          <ListFeaturesDeprecations
+            @allChangeLogs={{this.allChangeLogs}}
+            @fromVersion={{this.fromVersion}}
+            @toVersion={{this.toVersion}}
+          />
+        </template>,
+      );
 
       // Check features
       const features = findAll('[data-test-feature]');

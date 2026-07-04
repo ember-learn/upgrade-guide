@@ -1,9 +1,14 @@
-{{page-title "Upgrade Guide - Ember.js"}}
+import pageTitle from 'ember-page-title/helpers/page-title';
+import EsHeader from 'ember-styleguide/components/es-header';
+import EsFooter from 'ember-styleguide/components/es-footer';
+<template>
+  {{pageTitle "Upgrade Guide - Ember.js"}}
 
-<EsHeader />
+  <EsHeader />
 
-<main>
-  {{outlet}}
-</main>
+  <main>
+    {{outlet}}
+  </main>
 
-<EsFooter />
+  <EsFooter />
+</template>
