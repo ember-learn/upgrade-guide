@@ -1,13 +1,13 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { fillIn, render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import EmberVersionsForm from 'upgrade-guide/components/ember-versions-form';
 
 module('Integration | Component | ember-versions-form', function (hooks) {
   setupRenderingTest(hooks);
 
   test('renders a form', async function (assert) {
-    await render(hbs`<EmberVersionsForm />`);
+    await render(<template><EmberVersionsForm /></template>);
 
     assert
       .dom('[data-test-form="Ember Versions"]')
@@ -37,11 +37,9 @@ module('Integration | Component | ember-versions-form', function (hooks) {
       );
     };
 
-    await render(hbs`
-      <EmberVersionsForm
-        @onSubmit={{this.onSubmit}}
-      />
-    `);
+    await render(
+      <template><EmberVersionsForm @onSubmit={{this.onSubmit}} /></template>,
+    );
 
     await fillIn('[data-test-select="From Version"]', '3.15');
 
@@ -57,21 +55,17 @@ module('Integration | Component | ember-versions-form', function (hooks) {
   });
 
   test('Submit button should be enabled initially', async function (assert) {
-    await render(hbs`
-    <EmberVersionsForm
-      @onSubmit={{this.onSubmit}}
-    />
-  `);
+    await render(
+      <template><EmberVersionsForm @onSubmit={{this.onSubmit}} /></template>,
+    );
 
     assert.dom('[data-test-button="Find Changes"]').isEnabled();
   });
 
   test('Submit button should be enabled when selected fromVersion is less than toVersion', async function (assert) {
-    await render(hbs`
-    <EmberVersionsForm
-      @onSubmit={{this.onSubmit}}
-    />
-  `);
+    await render(
+      <template><EmberVersionsForm @onSubmit={{this.onSubmit}} /></template>,
+    );
 
     await fillIn('[data-test-select="From Version"]', '3.15');
     await fillIn('[data-test-select="To Version"]', '4.0');
@@ -79,11 +73,9 @@ module('Integration | Component | ember-versions-form', function (hooks) {
   });
 
   test('Submit button should be disabled when selected fromVersion is greater than toVersion', async function (assert) {
-    await render(hbs`
-    <EmberVersionsForm
-      @onSubmit={{this.onSubmit}}
-    />
-  `);
+    await render(
+      <template><EmberVersionsForm @onSubmit={{this.onSubmit}} /></template>,
+    );
 
     await fillIn('[data-test-select="From Version"]', '3.15');
     await fillIn('[data-test-select="To Version"]', '3.10');
@@ -91,11 +83,9 @@ module('Integration | Component | ember-versions-form', function (hooks) {
   });
 
   test('Submit button should be disabled when selected fromVersion is equal to toVersion', async function (assert) {
-    await render(hbs`
-    <EmberVersionsForm
-      @onSubmit={{this.onSubmit}}
-    />
-  `);
+    await render(
+      <template><EmberVersionsForm @onSubmit={{this.onSubmit}} /></template>,
+    );
 
     await fillIn('[data-test-select="From Version"]', '3.15');
     await fillIn('[data-test-select="To Version"]', '3.15');

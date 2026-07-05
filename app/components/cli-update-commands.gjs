@@ -1,0 +1,23 @@
+<template>
+  <code data-test-command="Ember CLI Update">
+    ember-cli-update --to
+    {{@toVersion}}
+  </code>
+  <h2>To run codemods:</h2>
+  <p>
+    (This should be run after running the normal update shown above, and after
+    you've resolved any conflicts.)
+  </p>
+  <code data-test-command="Run Codemods">
+    ember-cli-update --run-codemods
+  </code>
+
+  <p>
+    For more details, refer this documentation from
+    <a
+      href="https://github.com/ember-cli/ember-cli-update#examples"
+      rel="noopener noreferrer"
+      target="_blank"
+    >ember-cli-update</a>.
+  </p>
+</template>
