@@ -18,5 +18,14 @@ footer.es-footer {
 main > section.container > form {
   button.es-button {
     background-color: #db3122;
+
+    /* NOTE: The styleguide doesn't have a disabled button color, so we are
+       using a AAA-compliant gray/gray scheme */
+    &:disabled {
+      background-color: var(--color-gray-300);
+      color: var(--color-gray-700);
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
   }
 }

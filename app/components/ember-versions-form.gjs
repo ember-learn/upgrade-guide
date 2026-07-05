@@ -119,11 +119,11 @@ export default class EmberVersionsFormComponent extends Component {
         class="mt-2"
       />
 
-      <div role="alert">
-        {{#unless this.areVersionsValid}}
-          <p class="mt-2">To version should be higher than From version</p>
-        {{/unless}}
-      </div>
+      {{#unless this.areVersionsValid}}
+        <div role="alert" class="well mt-2 p-2">
+          To version should be higher than From version
+        </div>
+      {{/unless}}
     </form>
   </template>
 }
