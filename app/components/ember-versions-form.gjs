@@ -21,6 +21,14 @@ const GROUPED_VERSIONS = VERSIONS.reduce((acc, version) => {
   return acc;
 }, []);
 
+const isFromVersionInvalid = (version, toVersion) => {
+  return compare(version, toVersion, '>=');
+};
+
+const isToVersionInvalid = (version, fromVersion) => {
+  return compare(version, fromVersion, '<=');
+};
+
 export default class EmberVersionsFormComponent extends Component {
   versions = VERSIONS;
   groupedVersions = GROUPED_VERSIONS;
@@ -78,6 +86,10 @@ export default class EmberVersionsFormComponent extends Component {
                 <option
                   selected={{eq version this.fromVersion}}
                   value={{version}}
+                  class={{if
+                    (isFromVersionInvalid version this.toVersion)
+                    "is-invalid"
+                  }}
                 >
                   {{version}}
                 </option>
@@ -102,6 +114,10 @@ export default class EmberVersionsFormComponent extends Component {
                 <option
                   selected={{eq version this.toVersion}}
                   value={{version}}
+                  class={{if
+                    (isToVersionInvalid version this.fromVersion)
+                    "is-invalid"
+                  }}
                 >
                   {{version}}
                 </option>
@@ -119,11 +135,11 @@ export default class EmberVersionsFormComponent extends Component {
         class="mt-2"
       />
 
-      <div role="alert">
-        {{#unless this.areVersionsValid}}
-          <p class="mt-2">To version should be higher than From version</p>
-        {{/unless}}
-      </div>
+      {{#unless this.areVersionsValid}}
+        <div role="alert" class="well mt-2 p-2">
+          To version should be higher than From version
+        </div>
+      {{/unless}}
     </form>
   </template>
 }

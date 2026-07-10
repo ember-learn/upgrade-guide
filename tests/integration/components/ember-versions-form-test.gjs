@@ -91,4 +91,31 @@ module('Integration | Component | ember-versions-form', function (hooks) {
     await fillIn('[data-test-select="To Version"]', '3.15');
     assert.dom('[data-test-button="Find Changes"]').isDisabled();
   });
+
+  test('adds is-invalid class to invalid version options', async function (assert) {
+    await render(<template><EmberVersionsForm /></template>);
+
+    await fillIn('[data-test-select="From Version"]', '3.15');
+    await fillIn('[data-test-select="To Version"]', '3.18');
+
+    assert
+      .dom('[data-test-select="From Version"] option[value="3.15"]')
+      .doesNotHaveClass('is-invalid');
+
+    assert
+      .dom('[data-test-select="From Version"] option[value="3.18"]')
+      .hasClass('is-invalid');
+
+    assert
+      .dom('[data-test-select="To Version"] option[value="3.15"]')
+      .hasClass('is-invalid');
+
+    assert
+      .dom('[data-test-select="To Version"] option[value="3.12"]')
+      .hasClass('is-invalid');
+
+    assert
+      .dom('[data-test-select="To Version"] option[value="3.18"]')
+      .doesNotHaveClass('is-invalid');
+  });
 });
