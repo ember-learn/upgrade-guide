@@ -1,0 +1,10 @@
+import { withDefaults } from '@warp-drive/legacy/model/migration-support';
+
+export const EmberDataChangesSchema = withDefaults({
+  type: 'ember-data-changes',
+  // all the fields are in the shared md-common trait
+  fields: [],
+  traits: ['md-common'],
+});
+
+export default EmberDataChangesSchema;
