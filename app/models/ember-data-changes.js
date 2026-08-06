@@ -7,14 +7,4 @@ export default class EmberDataChangesModel extends Model {
   // html and content are not used, but they appear in the data
   @attr html;
   @attr content;
-
-  get features() {
-    return (this.changes || []).filter((change) => Boolean(change?.feature));
-  }
-
-  get deprecations() {
-    return (this.changes || []).filter((change) =>
-      Boolean(change?.deprecation),
-    );
-  }
 }
