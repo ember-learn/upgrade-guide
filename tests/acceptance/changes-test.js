@@ -5,12 +5,12 @@ import { a11yAudit } from 'ember-a11y-testing/test-support';
 
 // When a new version is added, update these numbers
 const LATEST_DELTAS = {
-  version: '7.2',
-  emberNewFeatures: 55,
+  version: '7.3',
+  emberNewFeatures: 58,
   emberDeprecations: 36,
   emberDataNewFeatures: 21,
   emberDataDeprecations: 18,
-  emberCLINewFeatures: 106,
+  emberCLINewFeatures: 107,
   emberCLIDeprecations: 14,
 };
 
